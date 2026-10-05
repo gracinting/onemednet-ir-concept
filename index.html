@@ -1,0 +1,1118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.add('js')</script>
+<title>OneMedNet Corporation (Nasdaq: ONMD) | Investor Relations Concept</title>
+<meta name="description" content="An independent design concept for the OneMedNet (Nasdaq: ONMD) investor relations page. Not affiliated with OneMedNet Corporation; the official IR site is https://www.onemednet.com/investor-relations/.">
+<link rel="icon" href="img/onemednet-favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300..900&amp;family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&amp;family=Spline+Sans+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+/* mc:tokens */
+:root{
+  /* palette.mjs --brand "#007cfa,#001a33" --strategy drenched  (drenched)
+     accent   #007cfa oklch(0.603 0.209 256.4)
+     deep     #001a33 oklch(0.214 0.059 249.3)
+     measured: white on --accent-ink 7.26:1, --accent-ink on --paper 7.06:1, --text-mid on --tint 5.64:1 */
+  --H: 256.4; --Hn: 249.3;
+  --accent:        oklch(0.603 0.209 256.4); /* bright: fills on light stock; text only on dark where --check proves >= 4.5; real */
+  --accent-lo:     oklch(0.603 0.209 256.4 / 0.14);
+  --accent-lt:     oklch(0.86 0.069 256.4); /* bright accent ON dark surfaces */
+  --accent-ink:    oklch(0.46 0.159 256.4); /* TEXT, links, primary-button background */
+  --accent-ink-d:  oklch(0.40 0.138 256.4); /* hover */
+  --ink:           oklch(0.26 0.022 249.3); /* headings */
+  --deep:          oklch(0.214 0.059 249.3); /* permanently dark band; real */
+  --paper:         oklch(0.99 0.004 249.3);
+  --card:          oklch(0.996 0.001 249.3);
+  --tint:          oklch(0.965 0.016 256.4); /* .sec-tint band, concept note, card interiors */
+  --tint-2:        oklch(0.91 0.035 256.4); /* borders, ghost outlines, the darker of two light bands */
+  --text:          oklch(0.31 0.022 249.3);
+  --text-mid:      oklch(0.49 0.022 249.3);
+  --line:          oklch(0.30 0.010 249.3 / 0.13);
+  --line-d:        oklch(0.98 0.009 256.4 / 0.14);
+  /* surface-slot defaults (foundation surface block); retune in surface.css */
+  --sheet-edge:    oklch(0.40 0.138 256.4 / 0.26);
+  --blind:         oklch(1.00 0.000 0 / 0.5);
+  --blind-k:       oklch(1.00 0.000 0 / 0.85);
+  --sheet-neg:     oklch(0.98 0.009 256.4 / 0.05);
+  --serif:         'Figtree', system-ui, sans-serif;
+  --sans:          'Newsreader', system-ui, sans-serif;
+  --mono:          'Spline Sans Mono', ui-monospace, monospace;
+  --wrap: 1140px; --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+/* mc:substrate 9576b9be1505 */
+/* mediaconsole substrate: inlined by scripts/scaffold.mjs, identical on every page. Never edit or retype it;
+   override in page/layer.css or page/surface.css (both load after it). Band: all. Hue-parametric: colours are
+   tokens or oklch(... var(--Hn)). Integrity: opaque nav, content visible without JS, print and forced-colors safe. */
+:where(:root){--wrap:1140px;--ease:cubic-bezier(0.22, 1, 0.36, 1)}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;scroll-padding-top:88px}
+body{font-family:var(--sans);color:var(--text);background:var(--paper);font-size:16px;line-height:1.6;overflow-x:hidden}
+a{color:inherit;text-decoration:none} img,svg{display:block;max-width:100%} button{font:inherit;cursor:pointer}
+::selection{background:var(--accent-lt);color:var(--deep)}
+:focus-visible{outline:2px solid var(--accent-ink);outline-offset:3px;border-radius:2px}
+.sec-dark :focus-visible,.snapshot :focus-visible,footer :focus-visible{outline-color:var(--accent-lt)}
+.wrap{width:min(var(--wrap),100% - 44px);margin-inline:auto}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.skip-link{position:absolute;left:12px;top:-60px;z-index:200;background:var(--deep);color:#fff;padding:10px 16px;border-radius:6px;font-size:.85rem;transition:top .2s var(--ease)}
+.skip-link:focus{top:12px}
+.concept-note{background:var(--tint);color:var(--accent-ink-d);font-size:.78rem;text-align:center;padding:8px 16px;position:relative;z-index:101}
+.concept-note a{color:inherit;font-weight:600;text-decoration:underline}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.08;letter-spacing:-.01em;color:var(--ink)}
+h1{font-size:clamp(2.35rem,5.3vw,4rem)} h2{font-size:clamp(1.7rem,3.4vw,2.5rem)} h3{font-size:clamp(1.15rem,2vw,1.4rem)}
+p{max-width:68ch}
+.eyebrow{font-family:var(--mono);font-size:.72rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-ink);display:inline-flex;align-items:center;gap:9px;margin-bottom:16px}
+.eyebrow::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--accent);flex:none}
+.lead{font-size:clamp(1.08rem,1.7vw,1.3rem);line-height:1.55;color:var(--text-mid)}
+/* four house buttons: primary + ghost on light stock, primary-light + ghost-light on dark stock.
+   Text on dark uses --accent-lt, never --accent (D16: --accent may be a mid-L real brand colour; it is a fill). */
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:11px 22px;border-radius:8px;font-family:var(--sans);font-size:.82rem;font-weight:600;letter-spacing:.02em;border:1.5px solid transparent;background:transparent;transition:background .2s var(--ease),border-color .2s var(--ease),color .2s var(--ease),transform .2s var(--ease)}
+.btn:hover{transform:translateY(-1px)} .btn .arw{font-family:var(--mono);transition:transform .2s var(--ease)} .btn:hover .arw{transform:translateX(3px)}
+.btn-primary{background:var(--accent-ink);color:#fff} .btn-primary:hover{background:var(--accent-ink-d)}
+.btn-ghost{border-color:var(--tint-2);color:var(--accent-ink)} .btn-ghost:hover{background:var(--tint);border-color:var(--accent-ink)}
+.btn-primary-light{background:var(--accent-lt);color:var(--deep)} .btn-primary-light:hover{background:var(--tint)}
+.btn-ghost-light{border-color:oklch(0.98 0.01 var(--Hn)/.4);color:#fff} .btn-ghost-light:hover{background:oklch(0.98 0.01 var(--Hn)/.1)}
+/* nav: opaque by rule (no translucency, no blur); markup is emitted by scaffold.mjs from page.json */
+.site-nav{position:sticky;top:0;z-index:100;background:var(--paper);border-bottom:1px solid var(--line);transition:box-shadow .3s var(--ease)}
+.site-nav.scrolled{box-shadow:0 6px 24px oklch(0.3 0.02 var(--Hn)/.07)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px;gap:20px}
+.nav-brand{display:flex;align-items:center;gap:12px;min-height:44px;min-width:0}
+.nav-logo{display:flex;align-items:center;flex:none}
+.nav-logo img{height:26px;width:auto}
+.nav-name{font-family:var(--serif);font-size:1.2rem;line-height:1.1;color:var(--ink)}
+.nav-tick{font-family:var(--mono);font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap;color:var(--text-mid);border:1px solid var(--line);border-radius:5px;padding:4px 8px}
+.nav-links{display:flex;align-items:center;gap:24px;list-style:none}
+.nav-links a:not(.btn){font-size:.86rem;font-weight:500;color:var(--text-mid);transition:color .2s var(--ease)}
+.nav-links a:not(.btn):hover{color:var(--accent-ink)}
+.nav-links a.active{color:var(--ink);text-decoration:underline;text-underline-offset:7px;text-decoration-color:var(--accent);text-decoration-thickness:2px}
+.nav-burger{display:none;flex-direction:column;gap:5px;width:44px;height:44px;align-items:center;justify-content:center;background:none;border:none}
+.nav-burger span{width:22px;height:2px;background:var(--ink);border-radius:2px;transition:transform .25s var(--ease),opacity .2s}
+.nav-burger[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.nav-burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+/* bands: FLAT FILLS, the floor only; page/surface.css must override them (verify FAILs flat pages) */
+main{display:block;overflow-x:clip}   /* a translated reveal or wide motif can never widen the page */
+main>section{padding:clamp(56px,8vw,104px) 0}
+.sec-white{background:var(--paper)} .sec-tint{background:var(--tint)}
+.sec-dark{background:var(--deep);color:oklch(0.9 0.008 var(--Hn))}
+.sec-dark h1,.sec-dark h2,.sec-dark h3{color:#fff} .sec-dark .eyebrow{color:var(--accent-lt)} .sec-dark .eyebrow::before{background:var(--accent)}
+.sec-dark .lead{color:oklch(0.86 0.01 var(--Hn))}
+.sec-head{max-width:660px;margin-bottom:clamp(36px,5vw,56px)} .sec-head p{margin-top:14px}
+/* data sits on its own plate: table.fin cells are transparent, never paint a band behind figures */
+.table-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table.fin{width:100%;border-collapse:collapse;min-width:540px;font-size:.92rem}
+table.fin caption{text-align:left;font-family:var(--mono);font-size:.72rem;letter-spacing:.05em;text-transform:uppercase;color:var(--text-mid);padding:14px 20px;border-bottom:1px solid var(--line);background:var(--card)}
+table.fin th,table.fin td{text-align:left;padding:14px 20px;border-bottom:1px solid var(--line)}
+table.fin tbody tr:last-child td{border-bottom:none}
+table.fin td.num{font-family:var(--mono);text-align:right;color:var(--ink);font-weight:500}
+table.fin thead th{font-weight:700;color:var(--ink);background:var(--card)}
+footer{background:var(--deep);color:oklch(0.76 0.008 var(--Hn));padding:56px 0 28px}
+.fls{padding:32px 0 0;font-size:.78rem;line-height:1.7;color:oklch(0.68 0.008 var(--Hn));max-width:98ch} .fls b{color:oklch(0.85 0.01 var(--Hn))}
+.fls a{color:inherit;text-decoration:underline} .fls+.fls{padding-top:14px}
+.market-note{padding-top:18px;margin-top:18px;border-top:1px solid var(--line-d);font-size:.72rem;line-height:1.7;color:oklch(0.68 0.008 var(--Hn))}
+/* reveal: hidden only once motion.js has set html.js, so no-JS and JS failure show everything.
+   Direction variants set --reveal-from (components/motion-extra.css); stagger with style="--d:.08s". */
+.reveal{transition:opacity .65s var(--ease),transform .65s var(--ease);transition-delay:var(--d,0s)}
+.js .reveal:not(.in){opacity:0;transform:var(--reveal-from,translateY(20px))}
+/* motif pause: motion.js toggles .paused on #hero-motif off-screen, in a hidden tab, or via [data-motif-toggle] */
+.paused,.paused::before,.paused::after,.paused *,.paused *::before,.paused *::after{animation-play-state:paused!important}
+@media (max-width:900px){
+  .nav-burger{display:flex}
+  .nav-links{position:absolute;top:72px;left:0;right:0;flex-direction:column;align-items:flex-start;gap:2px;background:var(--paper);border-bottom:1px solid var(--line);padding:12px 22px 20px;opacity:0;transform:translateY(-10px);visibility:hidden;pointer-events:none;transition:opacity .28s var(--ease),transform .28s var(--ease),visibility .28s;box-shadow:0 16px 30px oklch(0.3 0.02 var(--Hn)/.08)}
+  .nav-links.open{opacity:1;transform:none;visibility:visible;pointer-events:auto}
+  .nav-links li{width:100%} .nav-links a:not(.btn){display:block;padding:12px 0} .nav-links .btn{margin-top:10px;display:inline-flex}
+}
+@media (max-width:768px){ .footer-links a,.contact-col a{min-height:44px;display:flex;align-items:center} }   /* 44px tap targets; (0,1,1) so layer.css can restyle */
+@media (prefers-reduced-motion:reduce){
+  *{scroll-behavior:auto!important}
+  .reveal{transition:none} .js .reveal:not(.in){opacity:1;transform:none}
+  .btn:hover{transform:none} [class*="motif"]{animation:none!important} [data-motif-toggle]{display:none}
+}
+/* print (D12): decoration off, every reveal shown, dark bands re-inked dark-on-white (backgrounds may not print).
+   A custom dark band must carry .sec-dark so this, its focus ring and its heading colour all apply. */
+@media print{
+  *,*::before,*::after{background-image:none!important;box-shadow:none!important;text-shadow:none!important;animation:none!important;transition:none!important}
+  .site-nav{position:static} .nav-burger,.skip-link,[data-motif-toggle]{display:none!important}
+  .js .reveal:not(.in){opacity:1!important;transform:none!important}
+  .sec-dark,.sec-dark *,.hero,.hero *,.snapshot,.snapshot *,footer,footer *{background-color:transparent!important;color:#111!important;border-color:#bbb!important}
+  .sec-white,.sec-tint,.sec-dark,footer{background-color:#fff!important;border-top:1px solid #bbb}
+  .btn{background:transparent!important;color:#111!important;border-color:#111!important}
+  .table-scroll{overflow:visible;background:#fff!important}
+  main>section{padding:28px 0}
+}
+/* forced colors: the UA repaints every band to Canvas, so bands get a system seam instead */
+@media (forced-colors:active){
+  .sec-white,.sec-tint,.sec-dark,footer{background-image:none;border-top:1px solid CanvasText}
+  .btn{border-color:ButtonText}
+  .nav-burger span{forced-color-adjust:none;background:CanvasText}
+  .table-scroll{border-color:CanvasText}
+}
+/* mc:component motion-extra */
+/* motion-extra: reveal direction variants for the substrate's single .reveal + --d observer. Band: either.
+   Integrity: they only set --reveal-from, so .in and reduced motion always win (no ordering trap); never a 2nd observer. */
+.reveal.from-left{--reveal-from:translateX(-28px)}
+.reveal.from-right{--reveal-from:translateX(28px)}
+.reveal.scale-up{--reveal-from:scale(.96) translateY(10px)}
+@media (max-width:760px){.reveal.from-left,.reveal.from-right{--reveal-from:translateY(20px)}}   /* no sideways entry on phones */
+/* mc:component contact */
+/* contact: E9 IR contact grid. Band: either (light default, .sec-dark variant).
+   Integrity: headings are h3, never h4 (verify FAILs any h4); omit any unverified row (phone, transfer agent); the
+   EDGAR link is the edgar placeholder. The substrate gives .contact-col a its 44px min-height at <=768px. */
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:28px}
+.contact-col h3{font-family:var(--mono);font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-ink)}
+.contact-col a,.contact-col p,.contact-col address{display:block;margin-top:12px;font-style:normal;font-size:.95rem;line-height:1.6;color:var(--text)}
+.contact-col a{text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--tint-2);transition:color .2s var(--ease)}
+.contact-col a:hover{color:var(--accent-ink);text-decoration-color:var(--accent)}
+.sec-dark .contact-col h3{color:var(--accent-lt)}
+.sec-dark .contact-col a,.sec-dark .contact-col p,.sec-dark .contact-col address{color:oklch(0.82 0.008 var(--Hn))}
+.sec-dark .contact-col a{text-decoration-color:var(--line-d)}
+.sec-dark .contact-col a:hover{color:#fff;text-decoration-color:var(--accent)}
+/* mc:layer */
+/* OneMedNet visible layer. Archetype: full-bleed-split (a navy half bleeds to the viewport edge beside a paper half, and the
+   sides alternate down the page). Type: Figtree (the site's own face; headings, nav, buttons, table text) / Newsreader (reading text,
+   the filed words) / Spline Sans Mono (labels and dates only). Strategy: drenched on the real navy #001a33, blue #007cfa as fill, the
+   real cyan #00e2fc for highlights on dark. Hero: the logo's dot arc as a federated-network motif. Every animated class contains "motif". */
+:root{--deep-2:oklch(0.165 0.05 var(--Hn));--cyan:oklch(0.836 0.144 209);--ui:var(--serif);--split-pad:max(22px,calc((100vw - var(--wrap)) / 2))}
+html{scroll-padding-top:92px}
+body{font-size:1.1rem;line-height:1.62}
+h1,h2{font-weight:800;letter-spacing:-.03em;line-height:1.03}
+h3{font-weight:700;letter-spacing:-.012em;line-height:1.2}
+h2{font-size:clamp(1.9rem,3.5vw,3rem)}
+p{text-wrap:pretty}
+p a,td a,.pull-src a{text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--tint-2);color:var(--accent-ink);transition:color .2s var(--ease),text-decoration-color .2s var(--ease)}
+p a:hover,td a:hover{text-decoration-color:var(--accent)}
+.sec-dark p a,.sec-dark td a{color:var(--accent-lt);text-decoration-color:var(--line-d)}
+.sec-dark p a:hover{color:#fff;text-decoration-color:var(--cyan)}
+.eyebrow{font-weight:700}
+.eyebrow::before{background:var(--cyan)}
+.sec-dark .eyebrow{color:var(--cyan)}
+.note{font-size:.9rem;color:var(--text-mid)}
+.btn,.nav-links a{font-family:var(--ui)}
+.btn{font-weight:700}
+
+/* ---------- nav: a navy bar hosts the white wordmark; Contact IR takes the brand's own cyan button ---------- */
+.site-nav{background:var(--deep);border-bottom:1px solid var(--line-d)}
+.nav-logo img{height:42px;width:auto}
+.nav-links a:not(.btn){color:oklch(0.9 0.02 var(--Hn));font-weight:600}
+.nav-links a:not(.btn):hover{color:#fff}
+.nav-links a.active{color:#fff;text-decoration-color:var(--cyan)}
+.nav-tick{color:oklch(0.86 0.02 var(--Hn));border-color:var(--line-d)}
+.nav-burger span{background:#fff}
+.site-nav .btn-primary{background:var(--cyan);color:var(--deep)}
+.site-nav .btn-primary:hover{background:#fff}
+@media (max-width:900px){.nav-links{background:var(--deep);border-bottom:1px solid var(--line-d)}}
+
+/* ---------- hero: split halves, copy on the left, the motif on the right ---------- */
+main>section.hero{padding:0}
+.hero-split{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);min-height:clamp(620px,calc(100vh - 110px),840px)}
+.hero-copy{align-self:center;padding:clamp(48px,7vw,96px) clamp(28px,4vw,64px) clamp(48px,7vw,88px) var(--split-pad)}
+.hero h1{max-width:15ch;font-size:clamp(2.4rem,4.6vw,4.2rem);line-height:1.02;letter-spacing:-.035em}
+.hero h1 em{font-style:normal;color:var(--cyan)}
+.hero-lede{max-width:50ch;margin-top:22px;font-size:clamp(1.05rem,1.5vw,1.22rem)}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.hero-dates{list-style:none;display:grid;gap:10px;margin-top:32px;max-width:520px}
+.hero-dates li{display:grid;grid-template-columns:118px minmax(0,1fr);gap:14px;padding-top:10px;border-top:1px solid var(--line-d);font-size:.92rem;line-height:1.45}
+.hero-dates time{font-family:var(--mono);font-size:.72rem;font-weight:600;letter-spacing:.06em;color:var(--cyan);padding-top:3px;white-space:nowrap}
+.hero-asof{margin-top:22px;font-family:var(--mono);font-size:.66rem;line-height:1.6;letter-spacing:.04em;color:oklch(0.78 0.02 var(--Hn));max-width:none}
+.hero-art{position:relative;margin:0;display:grid;place-items:center;padding:clamp(28px,4vw,56px) clamp(20px,3vw,48px) clamp(70px,7vw,96px);background:var(--deep-2);overflow:hidden}
+.hero-art svg{width:min(100%,640px);height:auto}
+.hero-art figcaption{position:absolute;left:clamp(20px,3vw,44px);right:clamp(20px,3vw,44px);bottom:18px;font-family:var(--mono);font-size:.62rem;line-height:1.55;letter-spacing:.03em;color:oklch(0.78 0.02 var(--Hn))}
+/* the motif: tones follow the logo (cyan at the open end, blue at the heavy end); base state is the final state */
+.fed .d.t0{fill:oklch(0.84 0.14 209)} .fed .d.t1{fill:oklch(0.80 0.15 217)} .fed .d.t2{fill:oklch(0.76 0.16 227)}
+.fed .d.t3{fill:oklch(0.71 0.18 238)} .fed .d.t4{fill:oklch(0.66 0.20 248)} .fed .d.t5{fill:oklch(0.61 0.21 256)}
+.fed .site{fill:none;stroke:var(--accent-lt);stroke-width:1.7}
+.fed .flow{fill:none;stroke:var(--cyan);stroke-width:1.6;stroke-dasharray:3 9;opacity:.8}
+.fed .core{fill:var(--cyan)}
+.fed .core-ring{fill:none;stroke:var(--cyan);stroke-width:1.6;opacity:0}
+.fed .motif-arc{transform-origin:320px 320px;transform-box:view-box;animation:fedMotifSpin 180s linear infinite}
+.fed .motif-tw{animation:fedMotifTwinkle 8s ease-in-out infinite}
+.fed .motif-flow{animation:fedMotifFlow 2.8s linear infinite}
+.fed .motif-pulse{transform-origin:320px 320px;transform-box:view-box;animation:fedMotifPulse 3.6s ease-out infinite}
+@keyframes fedMotifSpin{to{transform:rotate(360deg)}}
+@keyframes fedMotifTwinkle{50%{opacity:.3}}
+@keyframes fedMotifFlow{to{stroke-dashoffset:-48}}
+@keyframes fedMotifPulse{0%{transform:scale(1);opacity:.75}100%{transform:scale(2.9);opacity:0}}
+
+/* ---------- 01 snapshot ---------- */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:0 28px}
+.fact{border-top:2px solid var(--ink);padding:16px 0 26px}
+.fact dt{font-family:var(--mono);font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text-mid);line-height:1.5;min-height:3em}
+.fact-fig{font-family:var(--serif);font-weight:800;font-size:clamp(1.8rem,2.5vw,2.4rem);letter-spacing:-.03em;line-height:1.05;color:var(--ink);margin:10px 0 10px;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.fact-note{font-size:.9rem;line-height:1.5;color:var(--text-mid)}
+.fact-note a+a{margin-left:.5em}
+
+/* ---------- split bands ---------- */
+main>section.split{padding:0;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr)}
+.split-r{grid-template-columns:minmax(0,7fr) minmax(0,5fr)!important}
+.split-r .split-k{order:2}
+.split-k,.split-c{min-width:0}
+.split-in{padding-block:clamp(56px,8vw,112px)}
+.split-l .split-k .split-in{padding-left:var(--split-pad);padding-right:clamp(28px,4vw,64px)}
+.split-l .split-c .split-in{padding-left:clamp(28px,4vw,64px);padding-right:var(--split-pad)}
+.split-r .split-k .split-in{padding-left:clamp(28px,4vw,64px);padding-right:var(--split-pad)}
+.split-r .split-c .split-in{padding-left:var(--split-pad);padding-right:clamp(28px,4vw,64px)}
+.split-k h2{font-size:clamp(2rem,3.3vw,3rem);max-width:13ch}
+/* the navy half keeps its heading in view while the paper half scrolls */
+@media (min-width:1021px){.split-k .split-in{position:sticky;top:84px}}
+.split-k .lead{margin-top:18px;max-width:34ch}
+.split-k .btn{margin-top:26px}
+.split-c h3{font-size:1.32rem;margin-top:30px}
+.split-c h3:first-child{margin-top:0}
+.split-c p{margin-top:10px;max-width:60ch}
+.pull{margin:34px 0 0}
+.pull::before{content:'';display:block;width:56px;height:3px;background:var(--cyan);margin-bottom:20px}
+.pull p{font-family:var(--serif);font-weight:600;font-size:clamp(1.15rem,1.8vw,1.5rem);line-height:1.32;color:#fff;max-width:none}
+.pull p.pull-src{margin-top:14px;font-family:var(--mono);font-weight:500;font-size:.68rem;letter-spacing:.05em;line-height:1.4}
+
+/* ---------- 03 how it works ---------- */
+.how-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);gap:clamp(28px,5vw,64px);align-items:start}
+.steps{list-style:none}
+.steps li{position:relative;display:grid;grid-template-columns:44px minmax(0,1fr);gap:0 16px;padding-bottom:26px}
+.steps li:not(:last-child)::after{content:'';position:absolute;left:19px;top:44px;bottom:2px;width:1px;background:oklch(0.46 0.159 256.4 / .35)}
+.step-n{width:40px;height:40px;border-radius:50%;background:var(--deep);color:#fff;font-family:var(--serif);font-weight:800;display:grid;place-items:center}
+.steps h3{font-size:1.25rem}
+.steps p{margin-top:4px;font-size:1rem;max-width:52ch}
+.plate{margin:0;padding:16px;border-radius:14px;background:var(--deep)}
+.plate img{width:100%;height:auto;border-radius:8px}
+.plate figcaption{margin-top:12px;font-family:var(--ui);font-size:.82rem;line-height:1.5;color:oklch(0.84 0.02 var(--Hn))}
+.claims{margin-top:clamp(36px,5vw,60px);padding:22px 26px;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+.claims h3{font-size:1.2rem}
+.claims p{margin-top:8px;max-width:84ch;font-size:1rem}
+
+/* ---------- 04 traction ---------- */
+.streams{min-width:0}
+.news-mini{list-style:none;margin-top:10px}
+.news-mini li{display:grid;grid-template-columns:96px minmax(0,1fr);gap:14px;padding:12px 0;border-top:1px solid var(--line);font-size:1rem;line-height:1.45}
+.news-mini li span{font-family:var(--mono);font-size:.68rem;font-weight:600;letter-spacing:.05em;color:var(--accent-ink);padding-top:4px}
+
+/* ---------- 05 financials ---------- */
+.fin-figs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-bottom:28px;align-items:start}
+.fin-tables{display:grid;gap:22px}
+@media (min-width:1021px){.fin-tables{grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);align-items:start}.fin-tables .fin-foot{grid-column:1 / -1}}
+.fin-foot,.gov-foot{font-size:.9rem;color:var(--text-mid);max-width:none}
+table.fin{font-family:var(--ui)}
+table.fin th[scope=row]{font-weight:500;color:var(--text)}
+table.fin tbody tr:last-child th{border-bottom:none}
+table.fin thead th{font-family:var(--mono);font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text-mid)}
+table.fin thead th:not(:first-child){text-align:right}
+table.fin td.num{font-family:var(--ui);font-variant-numeric:tabular-nums;font-weight:600;white-space:nowrap}
+table.fin.filings td.num,table.fin.filings thead th{text-align:left}
+table.fin.board thead th:not(:first-child),table.fin.filings thead th:not(:first-child){text-align:left}
+table.fin.results,table.fin.balance,table.fin.streams,table.fin.owners{min-width:0}
+.figure{margin:0;padding:20px 22px 18px;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+.fig-t{font-family:var(--mono);font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text-mid);margin-bottom:16px;line-height:1.5}
+.fig-n{margin-top:14px;font-size:.88rem;line-height:1.55;color:var(--text-mid);max-width:none}
+.bars{list-style:none;display:grid;gap:11px}
+.bars li{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(70px,1fr) auto;gap:12px;align-items:center;font-family:var(--ui);font-size:.9rem;line-height:1.3}
+.bars .b-l{color:var(--text)}
+.bars .b-sub .b-l{padding-left:14px;font-size:.84rem;color:var(--text-mid)}
+.bars .b-bar{display:block;height:14px;background:var(--tint)}
+.bars .b-bar i{display:block;height:100%;width:var(--w)}
+.bars .b-neg{background:var(--deep)}
+.bars .b-pos{background:var(--accent)}
+.bars .b-v{font-variant-numeric:tabular-nums;font-weight:700;color:var(--ink);white-space:nowrap;min-width:5.6em;text-align:right}
+.bars .b-total{margin-top:6px;padding-top:12px;border-top:1px solid var(--ink)}
+.bars .b-total .b-l{font-weight:700;color:var(--ink)}
+
+/* ---------- 06 material disclosures: the gravest band ---------- */
+.disc{list-style:none;counter-reset:d;max-width:920px}
+.disc li{counter-increment:d;display:grid;grid-template-columns:72px minmax(0,1fr);column-gap:18px;padding:26px 0;border-top:1px solid var(--line-d)}
+.disc li::before{content:counter(d,decimal-leading-zero);grid-row:1 / span 2;font-family:var(--mono);font-size:1.15rem;font-weight:600;color:var(--cyan);padding-top:.25rem}
+.disc h3,.disc p{grid-column:2}
+.disc h3{font-size:1.35rem}
+.disc p{margin-top:9px;font-size:1.02rem;line-height:1.62;color:oklch(0.88 0.012 var(--Hn));max-width:74ch}
+.sec-head h2{font-size:clamp(1.9rem,3.3vw,2.8rem)}
+.sec-head p{font-size:1.06rem}
+.sec-head{max-width:760px}
+
+/* ---------- 07 governance, 08 filings, 09 contact ---------- */
+.gov-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;align-items:start}
+.gov-foot{margin-top:20px}
+table.fin.board th[scope=row]{width:36%;vertical-align:top;font-weight:700;color:var(--ink)}
+table.fin.board td{vertical-align:top}
+table.fin.filings td{vertical-align:top;font-size:.95rem}
+table.fin.filings th[scope=row]{vertical-align:top;font-weight:700;color:var(--ink);white-space:nowrap}
+.alerts-line{margin-top:26px;padding:16px 20px;border:1px solid var(--line);border-radius:12px;background:var(--tint);font-size:1rem}
+.alerts-line p{max-width:none}
+.contact-grid{grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
+.split-c .contact-col h3{margin-top:0;font-size:.72rem}
+
+/* ---------- footer ---------- */
+.footer-top{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;flex-wrap:wrap;padding-bottom:26px;border-bottom:1px solid var(--line-d)}
+.footer-logo img{height:46px;width:auto}
+.footer-links{list-style:none;display:flex;flex-wrap:wrap;gap:8px 26px;max-width:640px}
+.footer-links a{font-family:var(--ui);font-size:.9rem;color:oklch(0.88 0.015 var(--Hn));text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--line-d);transition:color .2s var(--ease)}
+.footer-links a:hover{color:#fff;text-decoration-color:var(--cyan)}
+
+/* ---------- responsive ---------- */
+@media (max-width:1020px){
+  .js .hero-copy .reveal:not(.in),.js .hero-art.reveal:not(.in){opacity:1;transform:none}
+  .hero-split,main>section.split,.split-r{grid-template-columns:minmax(0,1fr)!important}
+  .hero-split{min-height:0}
+  .hero-copy{padding:clamp(40px,7vw,64px) 22px 40px}
+  .hero-art{padding:32px 20px 88px}
+  .hero-art svg{width:min(100%,520px)}
+  .split-r .split-k{order:0}
+  .split-l .split-k .split-in,.split-l .split-c .split-in,.split-r .split-k .split-in,.split-r .split-c .split-in{padding:56px 22px}
+  .how-grid,.fin-figs,.gov-grid{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:720px){
+  .hero-dates li{grid-template-columns:minmax(0,1fr);gap:2px}
+  .facts{grid-template-columns:minmax(0,1fr)}
+  .news-mini li{grid-template-columns:minmax(0,1fr);gap:2px}
+  .bars li{grid-template-columns:minmax(0,1fr) auto;gap:6px 12px}
+  .bars .b-bar{grid-column:1 / -1;order:3}
+  .disc li{grid-template-columns:minmax(0,1fr)}
+  .disc li::before{grid-row:auto;margin-bottom:4px}
+  .disc h3,.disc p{grid-column:1}
+  table.fin.board th[scope=row]{width:auto}
+  .fin-tables table.fin th,.fin-tables table.fin td,table.fin.streams th,table.fin.streams td{padding:10px 8px}
+  table.fin.results,table.fin.balance,table.fin.streams,table.fin.owners{font-size:.84rem}
+  table.fin td.num{font-size:.84rem}
+  /* text tables stack on a phone: nothing scrolls sideways and nothing is clipped */
+  table.fin.board,table.fin.filings{min-width:0}
+  table.fin.board thead,table.fin.filings thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  table.fin.board tbody tr,table.fin.filings tbody tr{display:block;padding:14px 16px;border-bottom:1px solid var(--line)}
+  table.fin.board tbody tr:last-child,table.fin.filings tbody tr:last-child{border-bottom:none}
+  table.fin.board th,table.fin.board td,table.fin.filings th,table.fin.filings td{display:block;width:auto;padding:0;border:none}
+  table.fin.board td,table.fin.filings td:last-child{margin-top:4px}
+  table.fin.filings tbody tr{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:12px}
+  table.fin.filings td.num{grid-column:1;grid-row:1;font-size:.84rem}
+  table.fin.filings th[scope=row]{grid-column:2;grid-row:1}
+  table.fin.filings td:last-child{grid-column:1 / -1;grid-row:2}
+  table.fin.filings td a{display:flex;align-items:center;min-height:44px}
+}
+@media (prefers-reduced-motion:reduce){
+  .fed .motif-arc,.fed .motif-tw,.fed .motif-flow,.fed .motif-pulse{animation:none}
+}
+
+/* ===================== design pass (panel synthesis) =====================
+   Base: split-screen choreography (stepped ratios, a pinned navy pane with a quiet poster word, a drawn seam).
+   Grafted: the ruled data sheet (12-column grid, ruled square-cornered blocks, a bar ledger, a numeral rail for the disclosures).
+   The halftone seam under the hero lives in surface.css. All rules are decoration; no text, figure, label or link changed. */
+:root{--g:24px;--rl:var(--ink);--rl-soft:oklch(0.26 0.022 var(--Hn) / .34);--word:oklch(0.31 0.08 var(--Hn));--panel-pad:min(var(--split-pad),max(28px,6vw));--pw:16vw}
+.sec-dark{--rl:#fff;--rl-soft:oklch(1 0 0 / .34)}
+main{counter-reset:sec -1}
+main>section{counter-increment:sec;position:relative;isolation:isolate}
+.btn,.nav-tick,.table-scroll,.figure,.plate,.plate img,.claims,.alerts-line{border-radius:0}
+
+/* section number in the eyebrow, in place of the dot (generated content, empty alt where supported) */
+.eyebrow::before,.sec-dark .eyebrow::before{content:counter(sec,decimal-leading-zero);content:counter(sec,decimal-leading-zero) / "";width:auto;height:auto;border-radius:0;background:none;padding-right:10px;border-right:1px solid currentColor;font-weight:700;letter-spacing:.06em;flex:none}
+
+/* section opener: a 4px rule with 12 column ticks that draws once as the heading is revealed */
+.sec-head{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--g);max-width:none;margin-bottom:clamp(40px,6vw,72px)}
+.sec-head::before{content:'';grid-column:1 / -1;height:13px;margin-bottom:22px;border-top:4px solid var(--rl);
+  background:linear-gradient(var(--rl),var(--rl)) 100% 0/1px 9px no-repeat,linear-gradient(90deg,var(--rl) 1px,transparent 1px) 0 0/calc((100% + var(--g)) / 12) 9px repeat-x;
+  transform-origin:0 0;transition:transform .9s var(--ease) .12s}
+.js .sec-head.reveal:not(.in)::before{transform:scaleX(0)}
+.sec-head .eyebrow{grid-column:1 / 4;align-self:start;margin:4px 0 0}
+.sec-head h2{grid-column:4 / -1;max-width:none}
+.sec-head p:not(.eyebrow){grid-column:4 / 11;margin-top:20px}
+#financials .sec-head h2{font-size:clamp(2.4rem,5.2vw,4.6rem);line-height:.96;letter-spacing:-.04em}
+#disclosures .sec-head h2{font-size:clamp(2.1rem,4vw,3.4rem);line-height:1;letter-spacing:-.036em}
+
+/* 01 snapshot: a ruled ledger of five rows, each figure on the grid */
+#snapshot{padding-top:calc(var(--p) * 7 + clamp(28px,4vw,48px))}
+.facts{display:block}
+.fact{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--g);align-items:start;padding:22px 0 28px;border-top:1px solid var(--rl-soft)}
+.fact:first-child{border-top:2px solid var(--rl)}
+.fact dt{grid-column:1 / 4;min-height:0;padding-top:.7rem}
+.fact-fig{grid-column:4 / 9;margin:0;font-weight:900;font-size:clamp(2.6rem,4.8vw,4.2rem);letter-spacing:-.045em;line-height:.95}
+.fact-note{grid-column:9 / 13;padding-top:.6rem}
+
+/* 03 how it works: numerals on rules, a ruled claims block */
+.steps li{grid-template-columns:72px minmax(0,1fr);gap:0 var(--g);padding:18px 0 22px;border-top:1px solid var(--rl-soft)}
+.steps li:first-child{border-top:2px solid var(--rl)}
+.steps li:not(:last-child)::after{display:none}
+.step-n{display:block;width:auto;height:auto;border-radius:0;background:none;color:var(--ink);font-size:2.6rem;font-weight:900;letter-spacing:-.05em;line-height:.9}
+.claims{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--g);padding:20px 0 0;border:0;border-top:2px solid var(--rl);background:none}
+.claims h3{grid-column:1 / 5}
+.claims p{grid-column:5 / -1;margin-top:0;max-width:68ch}
+
+/* tables and figures: ruled blocks with a heavy top rule; the plate keeps its card fill (no pattern behind data) */
+.table-scroll{border:1px solid var(--line);border-top:4px solid var(--rl)}
+table.fin td.num{font-weight:800}
+table.fin.results tbody tr:last-child>*,table.fin.streams tbody tr:last-child>*{border-top:2px solid var(--rl);font-weight:800;color:var(--ink)}
+table.fin.streams tbody tr:last-child td:nth-child(2){font-size:clamp(1.8rem,3vw,2.5rem);font-weight:900;letter-spacing:-.04em;line-height:1}
+
+/* 05 financials: the bar ledger on the same 12 columns, so every row's track is identical and the inline widths stay comparable */
+.fin-figs{grid-template-columns:minmax(0,1fr);gap:clamp(40px,5vw,64px)}
+.figure{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--g);padding:0;border:0;border-top:4px solid var(--rl);background:none}
+.fig-t{grid-column:1 / -1;margin:14px 0 18px;font-weight:700;color:var(--ink)}
+.bars{grid-column:1 / -1;gap:0}
+.bars li{grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--g);padding:14px 0;border-top:1px solid var(--rl-soft)}
+.bars .b-l{grid-column:1 / 5}
+.bars .b-bar{grid-column:5 / 10;height:20px}
+.bars .b-v{grid-column:10 / 13;min-width:0;font-weight:800;font-size:1.45rem;letter-spacing:-.02em;line-height:1}
+.bars .b-total{margin-top:0;padding:22px 0 16px;border-top:2px solid var(--rl)}
+.bars .b-total .b-v{font-weight:900;font-size:clamp(2.2rem,3.9vw,3.4rem);letter-spacing:-.045em}
+.bars .b-bar i{transform-origin:0 50%;transition:transform 1s var(--ease) .3s}
+.bars .b-total .b-bar i{transition-delay:.7s}
+.js .figure.reveal:not(.in) .bars i{transform:scaleX(0)}
+.fig-n{grid-column:5 / 12;margin-top:20px}
+
+/* 06 disclosures: a numeral rail (sticky) beside ruled items; no chroma lift, no glow */
+.disc{max-width:none;border-top:2px solid var(--rl)}
+.disc li{grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--g);padding:28px 0 clamp(36px,5vw,56px);border-top:0}
+.disc li+li{border-top:1px solid var(--rl-soft)}
+.disc li::before{grid-column:1 / 4;grid-row:1 / span 2;align-self:start;position:sticky;top:104px;padding:0;font-family:var(--ui);font-size:clamp(3rem,6vw,5.2rem);font-weight:900;letter-spacing:-.06em;line-height:.8;color:var(--accent-lt)}
+.disc h3{grid-column:4 / -1;font-size:clamp(1.35rem,2.1vw,1.8rem);font-weight:800;letter-spacing:-.025em;line-height:1.1}
+.disc p{grid-column:4 / 12;margin-top:14px;max-width:70ch}
+.alerts-line{padding:16px 0 0;border:0;border-top:2px solid var(--rl);background:none}
+.contact-col{padding-top:14px;border-top:2px solid var(--rl)}
+
+/* split bands: a pinned navy pane with a quiet poster word, a drawn seam, stepped ratios */
+.split-k{position:relative}
+.split-k .split-in{position:relative;isolation:isolate;overflow:hidden}
+.split-k .split-in::before{position:absolute;z-index:-1;bottom:.02em;font-family:var(--serif);font-weight:800;font-size:var(--pw);line-height:.8;letter-spacing:-.05em;white-space:nowrap;color:var(--word);pointer-events:none;user-select:none}
+#overview .split-k .split-in::before{content:"Overview";content:"Overview" / "";right:.05em}
+#traction .split-k .split-in::before{content:"Traction";content:"Traction" / "";left:.05em}
+#contact .split-k .split-in::before{content:"Contact";content:"Contact" / "";left:-.2em}
+.split-k::before{content:'';position:absolute;inset:0;z-index:3;pointer-events:none;background:linear-gradient(var(--cyan),var(--cyan)) var(--edge,100%) 0/1px 100% no-repeat}
+.split-k::after{content:'';position:absolute;z-index:3;pointer-events:none;top:0;bottom:0;width:13px;
+  background:radial-gradient(circle,var(--cyan) 0 3.5px,var(--deep) 4px 5.5px,transparent 6px) 50% 10px/13px 13px no-repeat,
+             radial-gradient(circle,var(--cyan) 0 3.5px,var(--deep) 4px 5.5px,transparent 6px) 50% calc(100% - 10px)/13px 13px no-repeat}
+.split-l .split-k{--edge:100%} .split-l .split-k::after{right:-6px}
+.split-r .split-k{--edge:0}    .split-r .split-k::after{left:-6px}
+@media (min-width:1021px){
+  #overview{grid-template-columns:minmax(0,40fr) minmax(0,60fr);--pw:9.6vw}
+  #traction.split-r{grid-template-columns:minmax(0,58fr) minmax(0,42fr)!important;--pw:11vw}
+  #contact{grid-template-columns:minmax(0,60fr) minmax(0,40fr);--pw:13vw}
+  .split-l .split-k .split-in{padding-left:var(--panel-pad)}
+  .split-r .split-k .split-in{padding-right:var(--panel-pad)}
+  #contact .split-c .split-in{padding-inline:clamp(24px,3vw,48px)}
+  #contact .split-k h2{font-size:clamp(2.4rem,4.8vw,4.4rem);max-width:none}
+  .contact-col a{overflow-wrap:anywhere}
+  .split-k .split-in{position:sticky;top:73px;min-height:clamp(560px,calc(100vh - 73px),820px)}
+  #overview .split-c .split-in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,3.2fr);column-gap:var(--g);row-gap:28px;align-content:start}
+  #overview .split-c h3,#overview .split-c p{margin:0;padding-top:16px;border-top:2px solid var(--ink)}
+  #overview .split-c p.note{grid-column:2;border-top-width:1px}
+}
+
+/* collapse: one column at 1020px and below (re-asserts the grids above, which load after the base collapse rules) */
+@media (max-width:1020px){
+  .sec-head{grid-template-columns:minmax(0,1fr)}
+  .sec-head .eyebrow,.sec-head h2,.sec-head p:not(.eyebrow){grid-column:1}
+  .sec-head .eyebrow{margin:0 0 14px}
+  .fact{grid-template-columns:minmax(0,1fr);row-gap:6px}
+  .fact dt,.fact-fig,.fact-note{grid-column:1}
+  .claims{grid-template-columns:minmax(0,1fr)}
+  .claims h3,.claims p{grid-column:1}
+  .claims p{margin-top:8px}
+  .figure{grid-template-columns:minmax(0,1fr)}
+  .fig-t,.bars,.fig-n{grid-column:1}
+  .bars li{grid-template-columns:minmax(0,1fr) auto;column-gap:12px;row-gap:8px}
+  .bars .b-l{grid-column:1}
+  .bars .b-v{grid-column:2}
+  .bars .b-bar{grid-column:1 / -1;order:3}
+  .disc li{grid-template-columns:minmax(0,1fr)}
+  .disc li::before{position:static;grid-row:auto;grid-column:1;font-size:3.2rem;margin-bottom:10px}
+  .disc h3,.disc p{grid-column:1}
+  .split-l .split-k .split-in,.split-r .split-k .split-in{padding-bottom:calc(var(--pw) * .8 + 28px)}
+  /* stacked: the seam is a hairline under the navy block with one dot at the left gutter */
+  .split-k::before{background:linear-gradient(var(--cyan),var(--cyan)) 0 100%/100% 1px no-repeat}
+  .split-l .split-k::after,.split-r .split-k::after{top:auto;bottom:-6px;left:16px;right:auto;height:13px;background:radial-gradient(circle,var(--cyan) 0 3.5px,var(--deep) 4px 5.5px,transparent 6px) 50% 50%/13px 13px no-repeat}
+}
+@media (max-width:720px){
+  .steps li{grid-template-columns:48px minmax(0,1fr);gap:0 14px}
+  .step-n{font-size:2rem}
+  table.fin.streams tbody tr:last-child td:nth-child(2){font-size:1.3rem}
+  .fact-fig{font-size:clamp(2.4rem,11vw,3.2rem)}
+}
+@media (prefers-reduced-motion:reduce){
+  .sec-head::before,.bars .b-bar i{transition:none}
+  .js .sec-head.reveal:not(.in)::before,.js .figure.reveal:not(.in) .bars i{transform:none}
+}
+@media print{
+  .js .sec-head.reveal:not(.in)::before,.js .figure.reveal:not(.in) .bars i{transform:none!important}
+  .split-k::before,.split-k::after,.split-k .split-in::before,#snapshot::before{display:none!important}
+  .split-k .split-in{position:static;min-height:0;overflow:visible}
+  .disc li::before{position:static}
+}
+/* mc:surface */
+/* OneMedNet surface system. Derived from the page's signature: the logo's halftone dot arc. Light and dark stock each carry a
+   different dot lattice. Polarity flip (ir-build 5a): printed dark trim on white stock, BLIND WHITE dots on the tinted stock,
+   negative (white, very low alpha) dots on dark. The gravest band (disclosures) gets its own, darkest stock: no dots, no glow.
+   Slots (--sheet-edge, --blind, --blind-k, --sheet-neg) come from tokens.css. */
+
+/* white stock (snapshot, financials, filings): two trim hairlines 11px inside each edge; the opaque head wash goes LAST (bottom)
+   so it cannot hide the trims */
+.sec-white{
+  background-color:var(--paper);
+  background-image:
+    linear-gradient(var(--sheet-edge),var(--sheet-edge)),
+    linear-gradient(var(--sheet-edge),var(--sheet-edge)),
+    linear-gradient(to bottom,var(--tint) 0,var(--paper) 230px);
+  background-size:1px 100%,1px 100%,100% 100%;
+  background-position:11px 0,calc(100% - 11px) 0,0 0;
+  background-repeat:no-repeat;
+}
+/* the paper halves of the split bands are narrower and bleed to one edge, so only one trim shows */
+.split-c.sec-white{
+  background-image:
+    linear-gradient(var(--sheet-edge),var(--sheet-edge)),
+    linear-gradient(to bottom,var(--tint) 0,var(--paper) 200px);
+  background-size:1px 100%,100% 100%;
+  background-position:calc(100% - 11px) 0,0 0;
+  background-repeat:no-repeat;
+}
+.split-l .split-c.sec-white{background-position:calc(100% - 11px) 0,0 0}
+.split-r .split-c.sec-white{background-position:11px 0,0 0}
+
+/* tinted stock (how it works, governance, contact): blind white halftone, a 22px lattice of white dots plus white trims. White on a
+   tint raises contrast, so nothing here needs rescuing (palette.mjs --check) */
+.sec-tint{
+  background-color:var(--tint);
+  background-image:
+    linear-gradient(var(--blind-k),var(--blind-k)),
+    linear-gradient(var(--blind-k),var(--blind-k)),
+    radial-gradient(circle,var(--blind-k) 0,var(--blind-k) 1.4px,transparent 1.9px);
+  background-size:1px 100%,1px 100%,24px 24px;
+  background-position:11px 0,calc(100% - 11px) 0,0 0;
+  background-repeat:no-repeat,no-repeat,repeat;
+}
+
+/* dark stock, default (the navy halves, the hero): a faint negative dot lattice under a deep wash */
+.sec-dark{
+  background-color:var(--deep);
+  background-image:
+    radial-gradient(circle,var(--sheet-neg) 0,var(--sheet-neg) 1.1px,transparent 1.6px),
+    linear-gradient(to bottom,oklch(0.28 0.065 var(--Hn)) 0,var(--deep) 360px);
+  background-size:24px 24px,100% 100%;
+  background-repeat:repeat,no-repeat;
+}
+
+/* hero: the copy half keeps the lattice; the motif half is a deeper navy lit by two very low alpha brand-hue fields */
+#hero.sec-dark{
+  background-image:
+    radial-gradient(circle,var(--sheet-neg) 0,var(--sheet-neg) 1.1px,transparent 1.6px),
+    linear-gradient(to bottom,oklch(0.27 0.065 var(--Hn)) 0,var(--deep) 420px);
+}
+.hero-art{
+  background-color:var(--deep-2);
+  background-image:
+    radial-gradient(60% 55% at 46% 52%,oklch(0.36 0.12 var(--H) / 0.28),transparent 72%),
+    radial-gradient(50% 40% at 100% 100%,oklch(0.42 0.1 209 / 0.18),transparent 70%),
+    linear-gradient(to bottom,oklch(0.19 0.05 var(--Hn)) 0,var(--deep-2) 62%,var(--deep) 100%);
+  background-repeat:no-repeat;
+}
+
+/* the gravest band: its own darkest stock, margin trims and a coarse 44px negative rule. No dots, no chroma lift, no glow. */
+#disclosures.sec-dark{
+  background-color:var(--deep-2);
+  background-image:
+    linear-gradient(var(--sheet-neg),var(--sheet-neg)),
+    linear-gradient(var(--sheet-neg),var(--sheet-neg)),
+    linear-gradient(to bottom,oklch(0.12 0.03 var(--Hn)) 0,transparent 220px);
+  background-size:1px 100%,1px 100%,100% 100%;
+  background-position:11px 0,calc(100% - 11px) 0,0 0;
+  background-repeat:no-repeat;
+}
+
+footer{
+  background-color:var(--deep-2);
+  background-image:
+    linear-gradient(var(--sheet-neg),var(--sheet-neg)),
+    linear-gradient(var(--sheet-neg),var(--sheet-neg)),
+    linear-gradient(to bottom,var(--deep) 0,var(--deep-2) 180px);
+  background-size:1px 100%,1px 100%,100% 100%;
+  background-position:11px 0,calc(100% - 11px) 0,0 0;
+  background-repeat:no-repeat;
+}
+
+/* the one screen seam: the hero's navy foot prints into the snapshot as halftone dots, large to pin, the same swell as the logo's arc.
+   Nine staggered rows at a constant pitch (--p). Dots carry no data: size varies by position only. Printed dark ink on white stock. */
+#snapshot{position:relative;isolation:isolate;--p:28px}
+#snapshot::before{
+  content:'';position:absolute;z-index:-1;pointer-events:none;top:calc(var(--p) * -.5);left:0;right:0;height:calc(var(--p) * 7.5);color:var(--deep);
+  background-image:
+    radial-gradient(circle,currentColor calc(var(--p) * .5),transparent calc(var(--p) * .5 + 1px)),
+    radial-gradient(circle,currentColor calc(var(--p) * .46),transparent calc(var(--p) * .46 + 1px)),
+    radial-gradient(circle,currentColor calc(var(--p) * .41),transparent calc(var(--p) * .41 + 1px)),
+    radial-gradient(circle,currentColor calc(var(--p) * .35),transparent calc(var(--p) * .35 + 1px)),
+    radial-gradient(circle,currentColor calc(var(--p) * .29),transparent calc(var(--p) * .29 + 1px)),
+    radial-gradient(circle,currentColor calc(var(--p) * .23),transparent calc(var(--p) * .23 + 1px)),
+    radial-gradient(circle,currentColor calc(var(--p) * .17),transparent calc(var(--p) * .17 + 1px)),
+    radial-gradient(circle,currentColor calc(var(--p) * .11),transparent calc(var(--p) * .11 + 1px)),
+    radial-gradient(circle,currentColor calc(var(--p) * .06),transparent calc(var(--p) * .06 + 1px));
+  background-size:var(--p) var(--p);background-repeat:repeat-x;
+  background-position:0 0,calc(var(--p) * .5) calc(var(--p) * .8),0 calc(var(--p) * 1.6),calc(var(--p) * .5) calc(var(--p) * 2.4),0 calc(var(--p) * 3.2),calc(var(--p) * .5) calc(var(--p) * 4),0 calc(var(--p) * 4.8),calc(var(--p) * .5) calc(var(--p) * 5.6),0 calc(var(--p) * 6.4);
+}
+@media (max-width:1020px){#snapshot{--p:20px}}
+@media (max-width:720px){#snapshot{--p:14px}}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="concept-note">Independent design concept. Not affiliated with OneMedNet Corporation. Official investor relations: <a href="https://www.onemednet.com/investor-relations/" target="_blank" rel="noopener">onemednet.com/investor-relations</a></div>
+
+<header class="site-nav">
+  <div class="wrap nav-inner">
+    <a class="nav-brand" href="#hero"><span class="nav-logo"><img src="img/onemednet-logo.webp" alt="OneMedNet" width="900" height="305"></span><span class="nav-tick">Nasdaq: ONMD</span></a>
+    <nav aria-label="Primary">
+      <button class="nav-burger" id="nav-burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#how">How it works</a></li>
+        <li><a href="#financials">Financials</a></li>
+        <li><a href="#disclosures">Disclosures</a></li>
+        <li><a href="#governance">Governance</a></li>
+        <li><a href="#news">Filings and news</a></li>
+        <li><a class="btn btn-primary" href="#contact">Contact IR <span class="arw" aria-hidden="true">-&gt;</span></a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+
+<!-- ============ 00 HERO: full-bleed split. Left: identity, the headline fact and the dated notices. Right: the federated dot-arc motif. ============ -->
+<section id="hero" class="hero sec-dark" aria-labelledby="hero-h">
+  <div class="hero-split">
+    <div class="hero-copy">
+      <p class="eyebrow reveal">OneMedNet Corporation &middot; Nasdaq: ONMD &middot; Eden Prairie, Minnesota</p>
+      <h1 id="hero-h" class="reveal" style="--d:.06s">Medical imaging data, <em>de-identified</em> and licensed for research.</h1>
+      <p class="lead hero-lede reveal" style="--d:.14s">OneMedNet curates imaging real-world data from a network of healthcare providers and licenses it to life-science and AI companies. It reported revenue of $1.36M for 2025, and its auditor has expressed substantial doubt about its ability to continue as a going concern.</p>
+      <div class="hero-cta reveal" style="--d:.22s">
+        <a class="btn btn-primary-light" href="#financials">Read the financials <span class="arw" aria-hidden="true">-&gt;</span></a>
+        <a class="btn btn-ghost-light" href="#disclosures">Material disclosures</a>
+      </div>
+      <ul class="hero-dates reveal" style="--d:.3s">
+        <li><time datetime="2026-09-29">Sep 29, 2026</time><span>1-for-10 reverse stock split, effective at 12:01 a.m. ET per the 8-K</span></li>
+        <li><time datetime="2026-10-12">Oct 12, 2026</time><span>Nasdaq deadline to regain the $1.00 minimum bid price</span></li>
+      </ul>
+      <p class="hero-asof reveal" style="--d:.36s">Filings reviewed through the 8-K filed Sep 29, 2026. Amounts in US dollars. No share price is shown.</p>
+    </div>
+    <figure class="hero-art" id="hero-motif">
+      <svg class="fed" viewBox="0 0 640 640" role="img" aria-label="Illustration of a federated data network: a halftone dot arc in the shape of the OneMedNet mark, nine open rings around it standing for provider sites that keep their own data, and dashed lines running from the rings to a solid core standing for a de-identified cohort that is licensed out."><g class="arc motif-arc"><circle class="d t5" cx="393.7" cy="364.3" r="1.93"/><circle class="d t5 motif-tw" cx="385.9" cy="375.3" r="2.44" style="animation-delay:-5.9s"/><circle class="d t5 motif-tw" cx="376.4" cy="384.9" r="2.85" style="animation-delay:-4.8s"/><circle class="d t5" cx="365.6" cy="392.9" r="3.18"/><circle class="d t5 motif-tw" cx="353.6" cy="399.2" r="3.46" style="animation-delay:-4.6s"/><circle class="d t4 motif-tw" cx="340.8" cy="403.4" r="3.69" style="animation-delay:-3.9s"/><circle class="d t4 motif-tw" cx="327.5" cy="405.7" r="3.88" style="animation-delay:-0.8s"/><circle class="d t4" cx="314.0" cy="405.8" r="4.03"/><circle class="d t4" cx="300.7" cy="403.8" r="4.15"/><circle class="d t4 motif-tw" cx="287.8" cy="399.7" r="4.24" style="animation-delay:-2.0s"/><circle class="d t4" cx="275.7" cy="393.7" r="4.29"/><circle class="d t3" cx="264.7" cy="385.9" r="4.33"/><circle class="d t3" cx="255.1" cy="376.4" r="4.33"/><circle class="d t3" cx="247.1" cy="365.6" r="4.31"/><circle class="d t3" cx="240.8" cy="353.6" r="4.27"/><circle class="d t3 motif-tw" cx="236.6" cy="340.8" r="4.21" style="animation-delay:-7.7s"/><circle class="d t2" cx="234.3" cy="327.5" r="4.13"/><circle class="d t2 motif-tw" cx="234.2" cy="314.0" r="4.04" style="animation-delay:-1.1s"/><circle class="d t2" cx="236.2" cy="300.7" r="3.92"/><circle class="d t2" cx="240.3" cy="287.8" r="3.79"/><circle class="d t2 motif-tw" cx="246.3" cy="275.7" r="3.64" style="animation-delay:-5.2s"/><circle class="d t2" cx="254.1" cy="264.7" r="3.48"/><circle class="d t1" cx="263.6" cy="255.1" r="3.31"/><circle class="d t1" cx="274.4" cy="247.1" r="3.12"/><circle class="d t1 motif-tw" cx="286.4" cy="240.8" r="2.93" style="animation-delay:-0.5s"/><circle class="d t1 motif-tw" cx="299.2" cy="236.6" r="2.73" style="animation-delay:-6.1s"/><circle class="d t1" cx="312.5" cy="234.3" r="2.52"/><circle class="d t1" cx="326.0" cy="234.2" r="2.30"/><circle class="d t0" cx="339.3" cy="236.2" r="2.08"/><circle class="d t0" cx="352.2" cy="240.3" r="1.86"/><circle class="d t0" cx="364.3" cy="246.3" r="1.64"/><circle class="d t0" cx="375.3" cy="254.1" r="1.44"/><circle class="d t0" cx="384.9" cy="263.6" r="1.24"/><circle class="d t5 motif-tw" cx="414.7" cy="373.9" r="1.94" style="animation-delay:-5.2s"/><circle class="d t5" cx="406.7" cy="386.1" r="2.48"/><circle class="d t5" cx="397.1" cy="397.0" r="2.90"/><circle class="d t5" cx="386.2" cy="406.6" r="3.26"/><circle class="d t5" cx="374.1" cy="414.6" r="3.57"/><circle class="d t5" cx="361.0" cy="421.0" r="3.83"/><circle class="d t4 motif-tw" cx="347.2" cy="425.6" r="4.05" style="animation-delay:-3.8s"/><circle class="d t4" cx="332.9" cy="428.2" r="4.24"/><circle class="d t4 motif-tw" cx="318.4" cy="429.0" r="4.39" style="animation-delay:-4.4s"/><circle class="d t4 motif-tw" cx="303.9" cy="427.8" r="4.52" style="animation-delay:-6.0s"/><circle class="d t4" cx="289.7" cy="424.7" r="4.62"/><circle class="d t4" cx="276.0" cy="419.7" r="4.70"/><circle class="d t4" cx="263.1" cy="413.0" r="4.75"/><circle class="d t3" cx="251.3" cy="404.6" r="4.78"/><circle class="d t3" cx="240.6" cy="394.7" r="4.79"/><circle class="d t3" cx="231.4" cy="383.5" r="4.78"/><circle class="d t3" cx="223.7" cy="371.1" r="4.76"/><circle class="d t3" cx="217.8" cy="357.8" r="4.71"/><circle class="d t3" cx="213.6" cy="343.9" r="4.65"/><circle class="d t2" cx="211.4" cy="329.5" r="4.57"/><circle class="d t2" cx="211.1" cy="315.0" r="4.47"/><circle class="d t2" cx="212.8" cy="300.5" r="4.36"/><circle class="d t2 motif-tw" cx="216.3" cy="286.4" r="4.24" style="animation-delay:-6.3s"/><circle class="d t2" cx="221.7" cy="272.9" r="4.11"/><circle class="d t2" cx="228.8" cy="260.2" r="3.96"/><circle class="d t2" cx="237.6" cy="248.6" r="3.80"/><circle class="d t1" cx="247.8" cy="238.3" r="3.63"/><circle class="d t1" cx="259.4" cy="229.4" r="3.46"/><circle class="d t1" cx="272.0" cy="222.2" r="3.27"/><circle class="d t1 motif-tw" cx="285.4" cy="216.6" r="3.08" style="animation-delay:-4.2s"/><circle class="d t1 motif-tw" cx="299.5" cy="212.9" r="2.88" style="animation-delay:-1.1s"/><circle class="d t1 motif-tw" cx="313.9" cy="211.2" r="2.67" style="animation-delay:-6.9s"/><circle class="d t1 motif-tw" cx="328.5" cy="211.3" r="2.46" style="animation-delay:-2.2s"/><circle class="d t0" cx="342.8" cy="213.4" r="2.25"/><circle class="d t0" cx="356.8" cy="217.4" r="2.03"/><circle class="d t0 motif-tw" cx="370.2" cy="223.2" r="1.82" style="animation-delay:-4.0s"/><circle class="d t0" cx="382.6" cy="230.8" r="1.61"/><circle class="d t0" cx="393.9" cy="239.9" r="1.42"/><circle class="d t0" cx="403.9" cy="250.4" r="1.24"/><circle class="d t5" cx="435.8" cy="383.3" r="1.96"/><circle class="d t5 motif-tw" cx="427.7" cy="396.3" r="2.51" style="animation-delay:-3.7s"/><circle class="d t5" cx="418.2" cy="408.3" r="2.95"/><circle class="d t5" cx="407.3" cy="419.0" r="3.33"/><circle class="d t5" cx="395.2" cy="428.5" r="3.66"/><circle class="d t5 motif-tw" cx="382.1" cy="436.5" r="3.94" style="animation-delay:-1.6s"/><circle class="d t5 motif-tw" cx="368.2" cy="442.9" r="4.19" style="animation-delay:-2.1s"/><circle class="d t4" cx="353.7" cy="447.6" r="4.41"/><circle class="d t4" cx="338.7" cy="450.7" r="4.60"/><circle class="d t4 motif-tw" cx="323.4" cy="452.0" r="4.76" style="animation-delay:-0.0s"/><circle class="d t4" cx="308.1" cy="451.5" r="4.89"/><circle class="d t4" cx="292.9" cy="449.2" r="5.00"/><circle class="d t4" cx="278.2" cy="445.2" r="5.09"/><circle class="d t4" cx="263.9" cy="439.5" r="5.16"/><circle class="d t4" cx="250.5" cy="432.2" r="5.21"/><circle class="d t3" cx="237.9" cy="423.4" r="5.24"/><circle class="d t3" cx="226.5" cy="413.2" r="5.25"/><circle class="d t3" cx="216.4" cy="401.7" r="5.25"/><circle class="d t3 motif-tw" cx="207.6" cy="389.2" r="5.23" style="animation-delay:-8.1s"/><circle class="d t3" cx="200.3" cy="375.7" r="5.19"/><circle class="d t3" cx="194.7" cy="361.5" r="5.14"/><circle class="d t3" cx="190.7" cy="346.7" r="5.08"/><circle class="d t2" cx="188.5" cy="331.5" r="5.00"/><circle class="d t2" cx="188.1" cy="316.2" r="4.91"/><circle class="d t2 motif-tw" cx="189.4" cy="300.9" r="4.81" style="animation-delay:-5.7s"/><circle class="d t2 motif-tw" cx="192.5" cy="285.9" r="4.69" style="animation-delay:-0.6s"/><circle class="d t2 motif-tw" cx="197.3" cy="271.4" r="4.56" style="animation-delay:-1.5s"/><circle class="d t2" cx="203.7" cy="257.5" r="4.43"/><circle class="d t2 motif-tw" cx="211.8" cy="244.5" r="4.28" style="animation-delay:-0.0s"/><circle class="d t2 motif-tw" cx="221.2" cy="232.4" r="4.12" style="animation-delay:-0.9s"/><circle class="d t1" cx="232.0" cy="221.6" r="3.96"/><circle class="d t1 motif-tw" cx="244.0" cy="212.0" r="3.79" style="animation-delay:-7.9s"/><circle class="d t1" cx="257.1" cy="204.0" r="3.61"/><circle class="d t1 motif-tw" cx="270.9" cy="197.5" r="3.42" style="animation-delay:-2.3s"/><circle class="d t1" cx="285.4" cy="192.6" r="3.23"/><circle class="d t1" cx="300.4" cy="189.5" r="3.03"/><circle class="d t1 motif-tw" cx="315.7" cy="188.1" r="2.82" style="animation-delay:-7.6s"/><circle class="d t1" cx="331.0" cy="188.5" r="2.62"/><circle class="d t0" cx="346.2" cy="190.6" r="2.41"/><circle class="d t0" cx="361.0" cy="194.5" r="2.20"/><circle class="d t0 motif-tw" cx="375.2" cy="200.1" r="1.99" style="animation-delay:-0.9s"/><circle class="d t0" cx="388.8" cy="207.3" r="1.79"/><circle class="d t0 motif-tw" cx="401.3" cy="216.0" r="1.59" style="animation-delay:-7.5s"/><circle class="d t0 motif-tw" cx="412.8" cy="226.2" r="1.40" style="animation-delay:-0.2s"/><circle class="d t0" cx="423.1" cy="237.6" r="1.23"/><circle class="d t5" cx="456.9" cy="392.8" r="1.99"/><circle class="d t5 motif-tw" cx="448.5" cy="406.7" r="2.55" style="animation-delay:-4.9s"/><circle class="d t5 motif-tw" cx="438.7" cy="419.6" r="3.02" style="animation-delay:-4.8s"/><circle class="d t5" cx="427.7" cy="431.5" r="3.42"/><circle class="d t5" cx="415.4" cy="442.1" r="3.77"/><circle class="d t5" cx="402.1" cy="451.4" r="4.08"/><circle class="d t5 motif-tw" cx="387.9" cy="459.3" r="4.35" style="animation-delay:-3.3s"/><circle class="d t5 motif-tw" cx="373.0" cy="465.7" r="4.59" style="animation-delay:-6.9s"/><circle class="d t4" cx="357.5" cy="470.4" r="4.80"/><circle class="d t4" cx="341.6" cy="473.5" r="4.99"/><circle class="d t4" cx="325.4" cy="474.9" r="5.15"/><circle class="d t4 motif-tw" cx="309.2" cy="474.6" r="5.29" style="animation-delay:-7.3s"/><circle class="d t4" cx="293.1" cy="472.6" r="5.41"/><circle class="d t4" cx="277.3" cy="469.0" r="5.50"/><circle class="d t4" cx="261.9" cy="463.7" r="5.58"/><circle class="d t4" cx="247.2" cy="456.9" r="5.64"/><circle class="d t3" cx="233.3" cy="448.5" r="5.68"/><circle class="d t3 motif-tw" cx="220.4" cy="438.7" r="5.71" style="animation-delay:-4.7s"/><circle class="d t3" cx="208.5" cy="427.7" r="5.72"/><circle class="d t3 motif-tw" cx="197.9" cy="415.4" r="5.71" style="animation-delay:-0.3s"/><circle class="d t3 motif-tw" cx="188.6" cy="402.1" r="5.69" style="animation-delay:-2.3s"/><circle class="d t3" cx="180.7" cy="387.9" r="5.66"/><circle class="d t3" cx="174.3" cy="373.0" r="5.61"/><circle class="d t3" cx="169.6" cy="357.5" r="5.55"/><circle class="d t3" cx="166.5" cy="341.6" r="5.48"/><circle class="d t2" cx="165.1" cy="325.4" r="5.39"/><circle class="d t2" cx="165.4" cy="309.2" r="5.29"/><circle class="d t2" cx="167.4" cy="293.1" r="5.19"/><circle class="d t2 motif-tw" cx="171.0" cy="277.3" r="5.07" style="animation-delay:-2.0s"/><circle class="d t2 motif-tw" cx="176.3" cy="261.9" r="4.94" style="animation-delay:-1.8s"/><circle class="d t2" cx="183.1" cy="247.2" r="4.80"/><circle class="d t2" cx="191.5" cy="233.3" r="4.66"/><circle class="d t2" cx="201.3" cy="220.4" r="4.50"/><circle class="d t1" cx="212.3" cy="208.5" r="4.34"/><circle class="d t1" cx="224.6" cy="197.9" r="4.17"/><circle class="d t1" cx="237.9" cy="188.6" r="3.99"/><circle class="d t1 motif-tw" cx="252.1" cy="180.7" r="3.81" style="animation-delay:-5.9s"/><circle class="d t1" cx="267.0" cy="174.3" r="3.62"/><circle class="d t1" cx="282.5" cy="169.6" r="3.42"/><circle class="d t1" cx="298.4" cy="166.5" r="3.22"/><circle class="d t1" cx="314.6" cy="165.1" r="3.02"/><circle class="d t1 motif-tw" cx="330.8" cy="165.4" r="2.81" style="animation-delay:-7.1s"/><circle class="d t0" cx="346.9" cy="167.4" r="2.61"/><circle class="d t0" cx="362.7" cy="171.0" r="2.40"/><circle class="d t0" cx="378.1" cy="176.3" r="2.19"/><circle class="d t0" cx="392.8" cy="183.1" r="1.98"/><circle class="d t0" cx="406.7" cy="191.5" r="1.78"/><circle class="d t0" cx="419.6" cy="201.3" r="1.58"/><circle class="d t0" cx="431.5" cy="212.3" r="1.39"/><circle class="d t0 motif-tw" cx="442.1" cy="224.6" r="1.23" style="animation-delay:-1.1s"/><circle class="d t5 motif-tw" cx="477.9" cy="402.1" r="2.01" style="animation-delay:-8.1s"/><circle class="d t5" cx="469.4" cy="416.8" r="2.60"/><circle class="d t5 motif-tw" cx="459.5" cy="430.5" r="3.08" style="animation-delay:-7.4s"/><circle class="d t5" cx="448.4" cy="443.3" r="3.50"/><circle class="d t5" cx="436.0" cy="455.0" r="3.87"/><circle class="d t5" cx="422.6" cy="465.4" r="4.20"/><circle class="d t5" cx="408.3" cy="474.5" r="4.49"/><circle class="d t5 motif-tw" cx="393.2" cy="482.2" r="4.75" style="animation-delay:-0.1s"/><circle class="d t5" cx="377.4" cy="488.5" r="4.99"/><circle class="d t4" cx="361.1" cy="493.2" r="5.20"/><circle class="d t4" cx="344.4" cy="496.3" r="5.38"/><circle class="d t4" cx="327.5" cy="497.8" r="5.54"/><circle class="d t4" cx="310.6" cy="497.8" r="5.68"/><circle class="d t4" cx="293.7" cy="496.0" r="5.81"/><circle class="d t4" cx="277.0" cy="492.7" r="5.91"/><circle class="d t4 motif-tw" cx="260.8" cy="487.9" r="5.99" style="animation-delay:-2.3s"/><circle class="d t4" cx="245.1" cy="481.5" r="6.06"/><circle class="d t4 motif-tw" cx="230.0" cy="473.6" r="6.11" style="animation-delay:-5.3s"/><circle class="d t3 motif-tw" cx="215.8" cy="464.3" r="6.15" style="animation-delay:-3.8s"/><circle class="d t3 motif-tw" cx="202.6" cy="453.8" r="6.17" style="animation-delay:-8.2s"/><circle class="d t3" cx="190.3" cy="442.0" r="6.18"/><circle class="d t3" cx="179.3" cy="429.1" r="6.17"/><circle class="d t3" cx="169.6" cy="415.2" r="6.15"/><circle class="d t3" cx="161.2" cy="400.4" r="6.12"/><circle class="d t3" cx="154.3" cy="384.9" r="6.07"/><circle class="d t3" cx="148.8" cy="368.9" r="6.02"/><circle class="d t3" cx="145.0" cy="352.3" r="5.95"/><circle class="d t2" cx="142.7" cy="335.5" r="5.87"/><circle class="d t2" cx="142.0" cy="318.6" r="5.78"/><circle class="d t2 motif-tw" cx="143.0" cy="301.6" r="5.68" style="animation-delay:-4.0s"/><circle class="d t2 motif-tw" cx="145.5" cy="284.8" r="5.57" style="animation-delay:-0.0s"/><circle class="d t2" cx="149.6" cy="268.4" r="5.45"/><circle class="d t2 motif-tw" cx="155.3" cy="252.4" r="5.32" style="animation-delay:-4.3s"/><circle class="d t2" cx="162.5" cy="237.0" r="5.18"/><circle class="d t2" cx="171.1" cy="222.4" r="5.03"/><circle class="d t2" cx="181.1" cy="208.7" r="4.88"/><circle class="d t2" cx="192.3" cy="196.0" r="4.72"/><circle class="d t1" cx="204.7" cy="184.4" r="4.55"/><circle class="d t1" cx="218.2" cy="174.0" r="4.38"/><circle class="d t1 motif-tw" cx="232.5" cy="165.0" r="4.20" style="animation-delay:-5.0s"/><circle class="d t1 motif-tw" cx="247.7" cy="157.3" r="4.01" style="animation-delay:-2.5s"/><circle class="d t1" cx="263.5" cy="151.2" r="3.82"/><circle class="d t1" cx="279.9" cy="146.6" r="3.62"/><circle class="d t1" cx="296.5" cy="143.6" r="3.42"/><circle class="d t1" cx="313.5" cy="142.1" r="3.22"/><circle class="d t1" cx="330.4" cy="142.3" r="3.01"/><circle class="d t0" cx="347.3" cy="144.1" r="2.80"/><circle class="d t0" cx="363.9" cy="147.5" r="2.59"/><circle class="d t0" cx="380.1" cy="152.5" r="2.38"/><circle class="d t0" cx="395.8" cy="159.0" r="2.17"/><circle class="d t0" cx="410.8" cy="166.9" r="1.97"/><circle class="d t0" cx="425.0" cy="176.3" r="1.77"/><circle class="d t0" cx="438.2" cy="186.9" r="1.57"/><circle class="d t0" cx="450.3" cy="198.8" r="1.39"/><circle class="d t0" cx="461.3" cy="211.7" r="1.22"/><circle class="d t5" cx="498.9" cy="411.6" r="2.05"/><circle class="d t5" cx="490.1" cy="427.1" r="2.66"/><circle class="d t5" cx="479.9" cy="441.8" r="3.16"/><circle class="d t5 motif-tw" cx="468.4" cy="455.5" r="3.60" style="animation-delay:-5.0s"/><circle class="d t5" cx="455.8" cy="468.2" r="3.99"/><circle class="d t5" cx="442.1" cy="479.7" r="4.34"/><circle class="d t5 motif-tw" cx="427.4" cy="489.9" r="4.66" style="animation-delay:-1.1s"/><circle class="d t5" cx="411.9" cy="498.8" r="4.94"/><circle class="d t5 motif-tw" cx="395.6" cy="506.2" r="5.19" style="animation-delay:-2.2s"/><circle class="d t4 motif-tw" cx="378.8" cy="512.2" r="5.42" style="animation-delay:-6.0s"/><circle class="d t4" cx="361.4" cy="516.7" r="5.63"/><circle class="d t4" cx="343.8" cy="519.6" r="5.81"/><circle class="d t4 motif-tw" cx="326.0" cy="520.9" r="5.97" style="animation-delay:-6.4s"/><circle class="d t4" cx="308.1" cy="520.6" r="6.11"/><circle class="d t4 motif-tw" cx="290.3" cy="518.8" r="6.23" style="animation-delay:-7.9s"/><circle class="d t4" cx="272.7" cy="515.4" r="6.34"/><circle class="d t4 motif-tw" cx="255.6" cy="510.4" r="6.43" style="animation-delay:-8.6s"/><circle class="d t4" cx="238.9" cy="503.9" r="6.50"/><circle class="d t4" cx="222.9" cy="496.0" r="6.56"/><circle class="d t3" cx="207.6" cy="486.6" r="6.60"/><circle class="d t3" cx="193.2" cy="476.0" r="6.63"/><circle class="d t3 motif-tw" cx="179.9" cy="464.1" r="6.64" style="animation-delay:-3.9s"/><circle class="d t3" cx="167.6" cy="451.1" r="6.64"/><circle class="d t3" cx="156.6" cy="437.0" r="6.63"/><circle class="d t3 motif-tw" cx="146.8" cy="422.0" r="6.60" style="animation-delay:-2.9s"/><circle class="d t3" cx="138.4" cy="406.2" r="6.56"/><circle class="d t3 motif-tw" cx="131.5" cy="389.7" r="6.51" style="animation-delay:-5.0s"/><circle class="d t3" cx="126.0" cy="372.7" r="6.45"/><circle class="d t3 motif-tw" cx="122.1" cy="355.2" r="6.38" style="animation-delay:-3.0s"/><circle class="d t2" cx="119.8" cy="337.5" r="6.30"/><circle class="d t2" cx="119.0" cy="319.6" r="6.21"/><circle class="d t2 motif-tw" cx="119.8" cy="301.8" r="6.11" style="animation-delay:-8.9s"/><circle class="d t2" cx="122.2" cy="284.1" r="6.00"/><circle class="d t2" cx="126.2" cy="266.6" r="5.88"/><circle class="d t2 motif-tw" cx="131.7" cy="249.6" r="5.75" style="animation-delay:-2.4s"/><circle class="d t2 motif-tw" cx="138.7" cy="233.2" r="5.61" style="animation-delay:-7.0s"/><circle class="d t2 motif-tw" cx="147.2" cy="217.4" r="5.47" style="animation-delay:-1.2s"/><circle class="d t2" cx="157.0" cy="202.4" r="5.31"/><circle class="d t2" cx="168.1" cy="188.4" r="5.15"/><circle class="d t1" cx="180.4" cy="175.4" r="4.99"/><circle class="d t1 motif-tw" cx="193.8" cy="163.6" r="4.81" style="animation-delay:-1.3s"/><circle class="d t1" cx="208.2" cy="153.0" r="4.64"/><circle class="d t1" cx="223.5" cy="143.7" r="4.45"/><circle class="d t1" cx="239.5" cy="135.8" r="4.26"/><circle class="d t1 motif-tw" cx="256.2" cy="129.4" r="4.06" style="animation-delay:-0.5s"/><circle class="d t1" cx="273.4" cy="124.5" r="3.86"/><circle class="d t1" cx="291.0" cy="121.1" r="3.66"/><circle class="d t1 motif-tw" cx="308.8" cy="119.3" r="3.45" style="animation-delay:-8.4s"/><circle class="d t1" cx="326.7" cy="119.1" r="3.24"/><circle class="d t0" cx="344.5" cy="120.5" r="3.03"/><circle class="d t0 motif-tw" cx="362.1" cy="123.5" r="2.82" style="animation-delay:-7.7s"/><circle class="d t0 motif-tw" cx="379.4" cy="128.0" r="2.61" style="animation-delay:-7.8s"/><circle class="d t0" cx="396.3" cy="134.0" r="2.39"/><circle class="d t0" cx="412.5" cy="141.5" r="2.18"/><circle class="d t0" cx="428.0" cy="150.5" r="1.97"/><circle class="d t0" cx="442.6" cy="160.7" r="1.77"/><circle class="d t0 motif-tw" cx="456.3" cy="172.3" r="1.57" style="animation-delay:-1.2s"/><circle class="d t0" cx="468.9" cy="185.0" r="1.39"/><circle class="d t0 motif-tw" cx="480.3" cy="198.8" r="1.22" style="animation-delay:-1.0s"/><circle class="d t5 motif-tw" cx="520.0" cy="420.9" r="2.08" style="animation-delay:-0.5s"/><circle class="d t5 motif-tw" cx="510.9" cy="437.2" r="2.71" style="animation-delay:-2.8s"/><circle class="d t5" cx="500.4" cy="452.7" r="3.24"/><circle class="d t5" cx="488.7" cy="467.3" r="3.70"/><circle class="d t5" cx="475.9" cy="480.9" r="4.11"/><circle class="d t5" cx="461.9" cy="493.3" r="4.48"/><circle class="d t5 motif-tw" cx="447.0" cy="504.5" r="4.81" style="animation-delay:-3.1s"/><circle class="d t5 motif-tw" cx="431.2" cy="514.5" r="5.11" style="animation-delay:-2.3s"/><circle class="d t5 motif-tw" cx="414.6" cy="523.1" r="5.38" style="animation-delay:-6.6s"/><circle class="d t5" cx="397.3" cy="530.2" r="5.63"/><circle class="d t4 motif-tw" cx="379.5" cy="536.0" r="5.85" style="animation-delay:-4.3s"/><circle class="d t4" cx="361.3" cy="540.2" r="6.05"/><circle class="d t4 motif-tw" cx="342.8" cy="542.8" r="6.23" style="animation-delay:-7.4s"/><circle class="d t4" cx="324.2" cy="544.0" r="6.40"/><circle class="d t4" cx="305.5" cy="543.5" r="6.54"/><circle class="d t4" cx="286.9" cy="541.5" r="6.66"/><circle class="d t4" cx="268.5" cy="538.0" r="6.77"/><circle class="d t4" cx="250.5" cy="533.0" r="6.86"/><circle class="d t4" cx="233.0" cy="526.4" r="6.94"/><circle class="d t4" cx="216.1" cy="518.5" r="7.00"/><circle class="d t4" cx="200.0" cy="509.1" r="7.04"/><circle class="d t3" cx="184.6" cy="498.5" r="7.08"/><circle class="d t3" cx="170.2" cy="486.5" r="7.10"/><circle class="d t3" cx="156.8" cy="473.5" r="7.10"/><circle class="d t3" cx="144.6" cy="459.3" r="7.10"/><circle class="d t3" cx="133.6" cy="444.2" r="7.08"/><circle class="d t3 motif-tw" cx="123.9" cy="428.3" r="7.05" style="animation-delay:-1.2s"/><circle class="d t3 motif-tw" cx="115.6" cy="411.6" r="7.01" style="animation-delay:-6.7s"/><circle class="d t3 motif-tw" cx="108.6" cy="394.2" r="6.95" style="animation-delay:-1.5s"/><circle class="d t3 motif-tw" cx="103.2" cy="376.3" r="6.89" style="animation-delay:-7.6s"/><circle class="d t3" cx="99.3" cy="358.1" r="6.82"/><circle class="d t2" cx="96.9" cy="339.5" r="6.73"/><circle class="d t2" cx="96.0" cy="320.9" r="6.64"/><circle class="d t2 motif-tw" cx="96.7" cy="302.2" r="6.54" style="animation-delay:-2.6s"/><circle class="d t2" cx="99.0" cy="283.6" r="6.43"/><circle class="d t2 motif-tw" cx="102.8" cy="265.3" r="6.31" style="animation-delay:-4.0s"/><circle class="d t2 motif-tw" cx="108.1" cy="247.4" r="6.18" style="animation-delay:-8.7s"/><circle class="d t2" cx="114.9" cy="230.0" r="6.04"/><circle class="d t2" cx="123.1" cy="213.2" r="5.90"/><circle class="d t2 motif-tw" cx="132.7" cy="197.2" r="5.75" style="animation-delay:-8.7s"/><circle class="d t2" cx="143.6" cy="182.0" r="5.59"/><circle class="d t2" cx="155.7" cy="167.8" r="5.43"/><circle class="d t1 motif-tw" cx="168.9" cy="154.6" r="5.25" style="animation-delay:-3.4s"/><circle class="d t1" cx="183.3" cy="142.6" r="5.08"/><circle class="d t1" cx="198.5" cy="131.8" r="4.89"/><circle class="d t1 motif-tw" cx="214.6" cy="122.3" r="4.70" style="animation-delay:-4.5s"/><circle class="d t1 motif-tw" cx="231.5" cy="114.2" r="4.51" style="animation-delay:-2.4s"/><circle class="d t1 motif-tw" cx="248.9" cy="107.6" r="4.31" style="animation-delay:-3.6s"/><circle class="d t1 motif-tw" cx="266.9" cy="102.4" r="4.11" style="animation-delay:-0.2s"/><circle class="d t1" cx="285.2" cy="98.7" r="3.90"/><circle class="d t1 motif-tw" cx="303.8" cy="96.6" r="3.69" style="animation-delay:-5.3s"/><circle class="d t1" cx="322.4" cy="96.0" r="3.48"/><circle class="d t1" cx="341.1" cy="97.0" r="3.27"/><circle class="d t0" cx="359.6" cy="99.5" r="3.05"/><circle class="d t0" cx="377.9" cy="103.6" r="2.83"/><circle class="d t0" cx="395.7" cy="109.2" r="2.62"/><circle class="d t0" cx="413.0" cy="116.2" r="2.40"/><circle class="d t0" cx="429.7" cy="124.7" r="2.19"/><circle class="d t0" cx="445.6" cy="134.5" r="1.98"/><circle class="d t0 motif-tw" cx="460.6" cy="145.6" r="1.77" style="animation-delay:-6.5s"/><circle class="d t0" cx="474.6" cy="157.9" r="1.57"/><circle class="d t0 motif-tw" cx="487.6" cy="171.4" r="1.39" style="animation-delay:-7.5s"/><circle class="d t0" cx="499.4" cy="185.9" r="1.22"/><circle class="d t5" cx="540.9" cy="430.5" r="2.12"/><circle class="d t5" cx="531.4" cy="447.7" r="2.78"/><circle class="d t5" cx="520.6" cy="464.1" r="3.33"/><circle class="d t5 motif-tw" cx="508.5" cy="479.7" r="3.81" style="animation-delay:-4.7s"/><circle class="d t5" cx="495.2" cy="494.2" r="4.25"/><circle class="d t5" cx="480.7" cy="507.5" r="4.63"/><circle class="d t5" cx="465.3" cy="519.8" r="4.99"/><circle class="d t5" cx="448.9" cy="530.7" r="5.31"/><circle class="d t5" cx="431.7" cy="540.3" r="5.60"/><circle class="d t5" cx="413.8" cy="548.5" r="5.86"/><circle class="d t5" cx="395.3" cy="555.2" r="6.10"/><circle class="d t4" cx="376.4" cy="560.5" r="6.32"/><circle class="d t4 motif-tw" cx="357.0" cy="564.2" r="6.52" style="animation-delay:-0.3s"/><circle class="d t4 motif-tw" cx="337.5" cy="566.4" r="6.70" style="animation-delay:-3.2s"/><circle class="d t4 motif-tw" cx="317.8" cy="567.0" r="6.86" style="animation-delay:-7.5s"/><circle class="d t4" cx="298.2" cy="566.0" r="7.00"/><circle class="d t4" cx="278.6" cy="563.5" r="7.12"/><circle class="d t4" cx="259.4" cy="559.4" r="7.23"/><circle class="d t4" cx="240.5" cy="553.9" r="7.32"/><circle class="d t4" cx="222.1" cy="546.8" r="7.39"/><circle class="d t4 motif-tw" cx="204.4" cy="538.3" r="7.45" style="animation-delay:-7.2s"/><circle class="d t4" cx="187.4" cy="528.4" r="7.50"/><circle class="d t3" cx="171.2" cy="517.1" r="7.54"/><circle class="d t3" cx="156.0" cy="504.7" r="7.56"/><circle class="d t3" cx="141.8" cy="491.0" r="7.56"/><circle class="d t3 motif-tw" cx="128.7" cy="476.3" r="7.56" style="animation-delay:-6.6s"/><circle class="d t3 motif-tw" cx="116.9" cy="460.6" r="7.54" style="animation-delay:-0.7s"/><circle class="d t3 motif-tw" cx="106.3" cy="443.9" r="7.51" style="animation-delay:-6.6s"/><circle class="d t3 motif-tw" cx="97.2" cy="426.5" r="7.48" style="animation-delay:-6.7s"/><circle class="d t3" cx="89.4" cy="408.5" r="7.43"/><circle class="d t3" cx="83.1" cy="389.8" r="7.36"/><circle class="d t3" cx="78.3" cy="370.7" r="7.29"/><circle class="d t3" cx="75.0" cy="351.3" r="7.21"/><circle class="d t2" cx="73.3" cy="331.7" r="7.12"/><circle class="d t2" cx="73.1" cy="312.0" r="7.02"/><circle class="d t2" cx="74.5" cy="292.4" r="6.91"/><circle class="d t2" cx="77.5" cy="272.9" r="6.80"/><circle class="d t2 motif-tw" cx="82.0" cy="253.8" r="6.67" style="animation-delay:-1.3s"/><circle class="d t2 motif-tw" cx="88.1" cy="235.0" r="6.54" style="animation-delay:-6.7s"/><circle class="d t2" cx="95.6" cy="216.8" r="6.39"/><circle class="d t2" cx="104.5" cy="199.3" r="6.24"/><circle class="d t2 motif-tw" cx="114.8" cy="182.5" r="6.09" style="animation-delay:-0.5s"/><circle class="d t2 motif-tw" cx="126.4" cy="166.6" r="5.92" style="animation-delay:-6.0s"/><circle class="d t2" cx="139.2" cy="151.7" r="5.75"/><circle class="d t1" cx="153.2" cy="137.8" r="5.58"/><circle class="d t1" cx="168.2" cy="125.1" r="5.39"/><circle class="d t1" cx="184.2" cy="113.7" r="5.21"/><circle class="d t1" cx="201.1" cy="103.5" r="5.01"/><circle class="d t1" cx="218.7" cy="94.7" r="4.81"/><circle class="d t1 motif-tw" cx="237.0" cy="87.4" r="4.61" style="animation-delay:-8.0s"/><circle class="d t1 motif-tw" cx="255.8" cy="81.5" r="4.40" style="animation-delay:-8.8s"/><circle class="d t1" cx="275.0" cy="77.1" r="4.19"/><circle class="d t1 motif-tw" cx="294.4" cy="74.3" r="3.98" style="animation-delay:-4.1s"/><circle class="d t1" cx="314.1" cy="73.1" r="3.76"/><circle class="d t1" cx="333.8" cy="73.4" r="3.54"/><circle class="d t0" cx="353.4" cy="75.3" r="3.32"/><circle class="d t0 motif-tw" cx="372.7" cy="78.7" r="3.09" style="animation-delay:-1.9s"/><circle class="d t0" cx="391.8" cy="83.7" r="2.87"/><circle class="d t0 motif-tw" cx="410.4" cy="90.1" r="2.65" style="animation-delay:-5.2s"/><circle class="d t0 motif-tw" cx="428.4" cy="98.1" r="2.43" style="animation-delay:-4.7s"/><circle class="d t0" cx="445.7" cy="107.4" r="2.21"/><circle class="d t0 motif-tw" cx="462.3" cy="118.1" r="1.99" style="animation-delay:-7.4s"/><circle class="d t0" cx="477.9" cy="130.0" r="1.78"/><circle class="d t0" cx="492.5" cy="143.2" r="1.58"/><circle class="d t0" cx="506.0" cy="157.5" r="1.39"/><circle class="d t0 motif-tw" cx="518.4" cy="172.8" r="1.23" style="animation-delay:-8.1s"/></g><g class="flows"><path class="flow motif-flow" d="M603.6 370.0 Q462.5 409.0 345.2 326.3" style="animation-delay:-0.0s"/><path class="flow motif-flow" d="M505.1 540.6 Q371.9 479.8 335.3 341.0" style="animation-delay:-0.7s"/><path class="flow motif-flow" d="M320.0 608.0 Q257.1 475.8 318.2 345.9" style="animation-delay:-1.4s"/><path class="flow motif-flow" d="M134.9 540.6 Q171.7 398.9 301.9 338.7" style="animation-delay:-2.1s"/><path class="flow motif-flow" d="M36.4 370.0 Q155.7 285.1 294.1 322.7" style="animation-delay:-2.8s"/><path class="flow motif-flow" d="M70.6 176.0 Q216.6 187.6 298.4 305.5" style="animation-delay:-3.5s"/><path class="flow motif-flow" d="M221.5 49.4 Q325.9 152.1 312.8 295.0" style="animation-delay:-4.2s"/><path class="flow motif-flow" d="M418.5 49.4 Q432.4 195.2 330.6 296.2" style="animation-delay:-4.9s"/><path class="flow motif-flow" d="M569.4 176.0 Q486.4 296.6 343.4 308.6" style="animation-delay:-5.6s"/></g><g class="sites"><circle class="site" cx="615.4" cy="372.1" r="9"/><circle class="site" cx="512.8" cy="549.8" r="9"/><circle class="site" cx="320.0" cy="620.0" r="9"/><circle class="site" cx="127.2" cy="549.8" r="9"/><circle class="site" cx="24.6" cy="372.1" r="9"/><circle class="site" cx="60.2" cy="170.0" r="9"/><circle class="site" cx="217.4" cy="38.1" r="9"/><circle class="site" cx="422.6" cy="38.1" r="9"/><circle class="site" cx="579.8" cy="170.0" r="9"/></g><circle class="core-ring motif-pulse" cx="320" cy="320" r="16"/><circle class="core" cx="320" cy="320" r="16"/></svg>
+      <figcaption>Illustration, not a map. Open rings stand for provider sites that keep their own data, dashed lines for requests, the solid core for a de-identified cohort that is licensed out. The number of rings carries no data.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============ 01 SNAPSHOT: five facts with their sources ============ -->
+<section id="snapshot" class="snapshot-sec sec-white" aria-labelledby="snap-h">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">At a glance</p>
+      <h2 id="snap-h">The position, in five facts</h2>
+    </div>
+    <dl class="facts">
+      <div class="fact reveal">
+        <dt>Healthcare sites in the network</dt>
+        <dd class="fact-fig">2,130</dd>
+        <dd class="fact-note">As stated in the 10-K for 2025. The press release dated Sep 25, 2026, filed with the 8-K of Sep 29, 2026, says &ldquo;more than 2,300&rdquo;, and the company&rsquo;s investor page says &ldquo;over 2,130&rdquo;. <a href="https://www.sec.gov/Archives/edgar/data/1849380/000149315226013681/form10-k.htm" target="_blank" rel="noopener">10-K</a> <a href="https://www.sec.gov/Archives/edgar/data/1849380/000149315226044801/form8-k.htm" target="_blank" rel="noopener">8-K</a></dd>
+      </div>
+      <div class="fact reveal" style="--d:.05s">
+        <dt>Revenue, year ended Dec 31, 2025</dt>
+        <dd class="fact-fig">$1.36M</dd>
+        <dd class="fact-note">$1,254 thousand from iRWD data delivery and $105 thousand from the BEAM platform, which was decommissioned in May 2025. <a href="https://www.sec.gov/Archives/edgar/data/1849380/000149315226013681/form10-k.htm" target="_blank" rel="noopener">10-K</a></dd>
+      </div>
+      <div class="fact reveal" style="--d:.1s">
+        <dt>Cash at Jun 30, 2026</dt>
+        <dd class="fact-fig">$358,000</dd>
+        <dd class="fact-note">Net cash used in operating activities was $3,417 thousand in the six months then ended. <a href="https://www.sec.gov/Archives/edgar/data/1849380/000149315226038461/form10-q.htm" target="_blank" rel="noopener">10-Q</a></dd>
+      </div>
+      <div class="fact reveal" style="--d:.15s">
+        <dt>Shares after the 1-for-10 reverse split</dt>
+        <dd class="fact-fig">6,012,591</dd>
+        <dd class="fact-note">Approximate, from the 8-K, down from about 60,125,902 at Sep 27, 2026. The press release gives about 59,286,450 shares at Sep 24 becoming 5,928,645. <a href="https://www.sec.gov/Archives/edgar/data/1849380/000149315226044801/form8-k.htm" target="_blank" rel="noopener">8-K</a></dd>
+      </div>
+      <div class="fact reveal" style="--d:.2s">
+        <dt>Employees at Dec 31, 2025</dt>
+        <dd class="fact-fig">23</dd>
+        <dd class="fact-note">All remote; one is part-time. <a href="https://www.sec.gov/Archives/edgar/data/1849380/000149315226013681/form10-k.htm" target="_blank" rel="noopener">10-K</a></dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+<!-- ============ 02 OVERVIEW + PROBLEM: split band, navy half on the left ============ -->
+<section id="overview" class="split split-l" aria-labelledby="ov-h">
+  <div class="split-k sec-dark">
+    <div class="split-in">
+      <p class="eyebrow reveal">What it does</p>
+      <h2 id="ov-h" class="reveal" style="--d:.06s">Imaging data, curated where it is kept.</h2>
+      <blockquote class="pull reveal" style="--d:.12s">
+        <p>&ldquo;OneMedNet is a global provider of clinical imaging innovation and curator of regulatory-grade Imaging Real World Data&rdquo;</p>
+        <p class="pull-src"><a href="https://www.sec.gov/Archives/edgar/data/1849380/000149315226013681/form10-k.htm" target="_blank" rel="noopener">10-K, filed Mar 30, 2026</a></p>
+      </blockquote>
+    </div>
+  </div>
+  <div class="split-c sec-white">
+    <div class="split-in">
+      <h3 class="reveal">The model</h3>
+      <p class="reveal">The company says its data stays at the provider until it is licensed: &ldquo;all the data remains locally onsite until specific de-identified data is licensed for a particular life science research opportunity&rdquo;. Revenue works the same way: &ldquo;iRWD is sold on a fixed fee basis based on the number of data units and the cost per data unit committed to in the customer contract. Revenue is recognized when the data is delivered to the customer.&rdquo; <a href="https://www.sec.gov/Archives/edgar/data/1849380/000149315226013681/form10-k.htm" target="_blank" rel="noopener">10-K</a></p>
+      <h3 class="reveal">Who buys it</h3>
+      <p class="reveal">The 10-K says &ldquo;life science companies, including pharmaceutical companies, artificial intelligence (&lsquo;AI&rsquo;) developers, medical device businesses, and clinical research organizations&rdquo; share the challenge of obtaining patient data that matches their cohort specifications. It names no current customer; the only customer it names is the Republic of Ireland, for its earlier BEAM image-exchange product. The 10-K and 10-Q describe the company as &ldquo;a healthcare software company with solutions focused on digital medical image management, exchange, and sharing&rdquo;. The company&rsquo;s website also lists academia, retail, finance and telecom as audiences, and offers AI data masking for healthcare, finance, retail and telecom.</p>
+      <h3 class="reveal">Why imaging</h3>
+      <p class="reveal">The 10-K states that &ldquo;approximately 90% of healthcare data, by size, is associated with imaging&rdquo; and that &ldquo;Historically, much of imaging value has been derived from its initial review, and further gains from the image archives have been very limited&rdquo;. It also notes that in late 2022 &ldquo;the FDA published proposed guidance related to data standards for product submissions with Real World Data&rdquo;.</p>
+      <p class="note reveal">The 10-K also gives market-size estimates: growth rates of 7.4% and 8.2% for real-world-evidence solutions, with no source named in the passages reviewed, and 9.1% for the real-world-data market, which it attributes to Coherent Market Insights. This page does not reproduce the market sizes.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 03 HOW IT WORKS: the company's five steps and one of its own illustrations ============ -->
+<section id="how" class="how sec-tint" aria-labelledby="how-h">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">How it works</p>
+      <h2 id="how-h">Five steps from request to cohort</h2>
+      <p>The sequence below is the company&rsquo;s own description on onemednet.com. It is a statement of process, not a measure of results.</p>
+    </div>
+    <div class="how-grid">
+      <ol class="steps">
+        <li class="reveal"><span class="step-n">1</span><div><h3>Request</h3><p>A customer can &ldquo;request data with as many complex and precise specifications as you need&rdquo;.</p></div></li>
+        <li class="reveal" style="--d:.05s"><span class="step-n">2</span><div><h3>Refine</h3><p>The company&rsquo;s platform tells the customer &ldquo;how many samples we can fulfill with a 100% criteria match&rdquo;.</p></div></li>
+        <li class="reveal" style="--d:.1s"><span class="step-n">3</span><div><h3>Curate</h3><p>&ldquo;Our team of clinical experts dives into the massive pools of unstructured data available to us through our network of providers&rdquo;.</p></div></li>
+        <li class="reveal" style="--d:.15s"><span class="step-n">4</span><div><h3>Deliver</h3><p>Data is delivered &ldquo;usually in batches&rdquo;.</p></div></li>
+        <li class="reveal" style="--d:.2s"><span class="step-n">5</span><div><h3>Dive deeper</h3><p>&ldquo;Our data networks are live,&rdquo; so a customer can keep following a cohort over time.</p></div></li>
+      </ol>
+      <figure class="plate reveal from-right">
+        <img src="img/curate-step.webp" width="1000" height="635" loading="lazy" alt="Line-art illustration: three document icons, two marked with checks and one with a cross, feeding a folder.">
+        <figcaption>The company&rsquo;s illustration of step 3, Curate, from onemednet.com/how-it-works. It shows no real patient data.</figcaption>
+      </figure>
+    </div>
+    <div class="claims reveal">
+      <h3>What the 10-K says sets it apart</h3>
+      <p>&ldquo;We believe that OneMedNet unlocks the value in imaging and EHR data in the following three principal ways&rdquo;: <b>Regulatory Grade</b>, <b>On Demand</b> and <b>Expertly Curated</b>. The 10-K says the data is &ldquo;fully de-identified using a multi-step quality control process&rdquo;. These are the company&rsquo;s beliefs and descriptions, not findings. <a href="https://www.sec.gov/Archives/edgar/data/1849380/000149315226013681/form10-k.htm" target="_blank" rel="noopener">10-K</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 04 TRACTION: split band, navy half on the right ============ -->
+<section id="traction" class="split split-r" aria-labelledby="tr-h">
+  <div class="split-k sec-dark">
+    <div class="split-in">
+      <p class="eyebrow reveal">Traction</p>
+      <h2 id="tr-h" class="reveal" style="--d:.06s">What the revenue comes from.</h2>
+      <p class="lead reveal" style="--d:.12s">One product line now supplies nearly all of it. The earlier product, BEAM, was decommissioned in May 2025.</p>
+    </div>
+  </div>
+  <div class="split-c sec-white">
+    <div class="split-in">
+      <div class="table-scroll reveal">
+        <table class="fin streams">
+          <caption>Revenue by stream (USD thousands, as reported)</caption>
+          <thead><tr><th scope="col">Stream</th><th scope="col">FY2025</th><th scope="col">FY2024</th><th scope="col">H1 2026</th><th scope="col">H1 2025</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">iRWD data delivery</th><td class="num">1,254</td><td class="num">292</td><td class="num">388</td><td class="num">187</td></tr>
+            <tr><th scope="row">BEAM subscription</th><td class="num">105</td><td class="num">351</td><td class="num">none</td><td class="num">105</td></tr>
+            <tr><th scope="row">Total revenue</th><td class="num">1,359</td><td class="num">643</td><td class="num">388</td><td class="num">292</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="reveal">FY is the year ended December 31; H1 is the six months ended June 30. Sources: <a href="https://www.sec.gov/Archives/edgar/data/1849380/000149315226013681/form10-k.htm" target="_blank" rel="noopener">10-K</a>, <a href="https://www.sec.gov/Archives/edgar/data/1849380/000149315226038461/form10-q.htm" target="_blank" rel="noopener">10-Q</a>. The 10-K says &ldquo;The BEAM platform was decommissioned in May 2025 and no revenue was generated from this platform thereafter.&rdquo;</p>
+      <h3 class="reveal">A narrow customer base</h3>
+      <p class="reveal">Three customers each accounted for 10% or more of 2025 revenue: 21%, 15% and 12%, together 48%. In 2024 two customers accounted for 35% and 17%, together 52%. Three customers also made up 51% of receivables at December 31, 2025.</p>
+      <h3 class="reveal">Announced by the company</h3>
+      <ul class="news-mini reveal">
+        <li><span>Sep 30, 2026</span>&ldquo;OneMedNet Signs Seven Figure Multiyear Agreement to Power a Partner Sold Derivative Data Solution&rdquo;</li>
+        <li><span>Sep 22, 2026</span>&ldquo;OneMedNet Expands Commercial Reach Through Multi-Year Resale Agreement with Atropos Health&rdquo;</li>
+      </ul>
+      <p class="note reveal">Headlines as shown on the company&rsquo;s investor page, which links to <a href="https://www.onemednet.com/news/" target="_blank" rel="noopener">its news index</a>. These agreements are not described in the SEC filings reviewed, and no contract values or dates of revenue are filed.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 05 FINANCIALS ============ -->
+<section id="financials" class="financials sec-white" aria-labelledby="fin-h">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Financials</p>
+      <h2 id="fin-h">Results, balance sheet and cash</h2>
+      <p>US dollars, in thousands as reported. The annual figures are audited, from the 10-K filed Mar 30, 2026. The six-month figures are unaudited, from the 10-Q filed Aug 14, 2026.</p>
+    </div>
+    <div class="fin-figs">
+      <figure class="figure reveal">
+        <figcaption class="fig-t">From operating loss to net loss, FY2025</figcaption>
+        <ul class="bars" aria-label="Bars drawn to the reported values in USD thousands">
+          <li><span class="b-l">Loss from operations</span><span class="b-bar"><i class="b-neg" style="--w:100%"></i></span><b class="b-v">$(9,667)</b></li>
+          <li><span class="b-l">Total other income, net</span><span class="b-bar"><i class="b-pos" style="--w:71.0%"></i></span><b class="b-v">+$6,867</b></li>
+          <li class="b-sub"><span class="b-l">of which gain on troubled debt restructurings</span><span class="b-bar"><i class="b-pos" style="--w:57.6%"></i></span><b class="b-v">+$5,569</b></li>
+          <li class="b-sub"><span class="b-l">of which change in fair value of convertible notes</span><span class="b-bar"><i class="b-pos" style="--w:13.3%"></i></span><b class="b-v">+$1,285</b></li>
+          <li class="b-total"><span class="b-l">Net loss</span><span class="b-bar"><i class="b-neg" style="--w:29.0%"></i></span><b class="b-v">$(2,801)</b></li>
+        </ul>
+        <p class="fig-n">The 10-K says the gain on troubled debt restructurings &ldquo;represents the difference between the net carrying values and consideration transferred&rdquo; when deferred underwriter fees and certain trade payables were settled. Net cash used in operating activities in FY2025 was $7,503 thousand.</p>
+      </figure>
+      <figure class="figure reveal" style="--d:.08s">
+        <figcaption class="fig-t">Cash against cash used, six months to Jun 30, 2026</figcaption>
+        <ul class="bars" aria-label="Bars drawn to the reported values in USD thousands">
+          <li><span class="b-l">Cash and cash equivalents at Jun 30, 2026</span><span class="b-bar"><i class="b-pos" style="--w:10.5%"></i></span><b class="b-v">$358</b></li>
+          <li><span class="b-l">Net cash used in operating activities, six months</span><span class="b-bar"><i class="b-neg" style="--w:100%"></i></span><b class="b-v">$3,417</b></li>
+        </ul>
+        <p class="fig-n">The six-month figure averages about $570 thousand a month (derived: 3,417 divided by 6). Financing in the period came from related-party subscriptions ($2.1 million) and the 2024 standby equity purchase agreement ($1.0 million), per the 10-Q.</p>
+      </figure>
+    </div>
+    <div class="fin-tables">
+      <div class="table-scroll reveal">
+        <table class="fin results">
+          <caption>Results of operations (USD thousands)</caption>
+          <thead><tr><th scope="col">Line</th><th scope="col">FY2025</th><th scope="col">FY2024</th><th scope="col">H1 2026</th><th scope="col">H1 2025</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Revenue</th><td class="num">1,359</td><td class="num">643</td><td class="num">388</td><td class="num">292</td></tr>
+            <tr><th scope="row">Cost of revenue</th><td class="num">1,862</td><td class="num">924</td><td class="num">1,542</td><td class="num">737</td></tr>
+            <tr><th scope="row">Gross margin</th><td class="num">(503)</td><td class="num">(281)</td><td class="num">(1,154)</td><td class="num">(445)</td></tr>
+            <tr><th scope="row">Total operating expenses</th><td class="num">9,164</td><td class="num">9,324</td><td class="num">3,659</td><td class="num">3,906</td></tr>
+            <tr><th scope="row">Loss from operations</th><td class="num">(9,667)</td><td class="num">(9,605)</td><td class="num">(4,813)</td><td class="num">(4,351)</td></tr>
+            <tr><th scope="row">Net income (loss)</th><td class="num">(2,801)</td><td class="num">(10,129)</td><td class="num">(4,625)</td><td class="num">1,080</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="table-scroll reveal" style="--d:.06s">
+        <table class="fin balance">
+          <caption>Balance sheet (USD thousands)</caption>
+          <thead><tr><th scope="col">Line</th><th scope="col">Dec 31, 2025</th><th scope="col">Jun 30, 2026</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Cash and cash equivalents</th><td class="num">585</td><td class="num">358</td></tr>
+            <tr><th scope="row">Investment in crypto assets (Bitcoin)</th><td class="num">506</td><td class="num">none</td></tr>
+            <tr><th scope="row">Accounts receivable, net</th><td class="num">495</td><td class="num">664</td></tr>
+            <tr><th scope="row">Total assets</th><td class="num">2,151</td><td class="num">1,364</td></tr>
+            <tr><th scope="row">Total liabilities</th><td class="num">5,116</td><td class="num">4,882</td></tr>
+            <tr><th scope="row">Total stockholders&rsquo; deficit</th><td class="num">(2,965)</td><td class="num">(3,518)</td></tr>
+            <tr><th scope="row">Accumulated deficit</th><td class="num">(104,370)</td><td class="num">(108,995)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="fin-foot reveal">Dec 31, 2025 balances are as shown in the 10-Q. Shares outstanding were 51,796,728 at Dec 31, 2025 and 57,721,343 at Jun 30, 2026, both before the 1-for-10 reverse split of Sep 29, 2026. EDGAR filings: <a href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;CIK=0001849380&amp;type=&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">CIK 0001849380</a>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 06 MATERIAL DISCLOSURES: the gravest band, in the filed words ============ -->
+<section id="disclosures" class="disclosures sec-dark" aria-labelledby="disc-h">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Material disclosures</p>
+      <h2 id="disc-h">What a reader should know before relying on any figure above</h2>
+      <p class="lead">Taken from the company&rsquo;s own filings, with the filing beside each item. Share counts and per-share figures in filings dated before September 29, 2026 are pre-split.</p>
+    </div>
+    <ol class="disc">
+      <li class="reveal"><h3>Going-concern doubt</h3>
+        <p>The 10-K says the auditor&rsquo;s report &ldquo;contains an explanatory paragraph regarding substantial doubt about our ability to continue as a going concern&rdquo;, and that management &ldquo;does not believe that cash and cash equivalents are sufficient to meet our foreseeable cash needs for at least the next 12 months&rdquo;. The 10-Q for the quarter ended June 30, 2026 makes the same statement. Cash was $358,000 at that date, and net cash used in operating activities was $3,417 thousand in the six months then ended, about $570 thousand a month on average (derived). Accounts payable and accrued expenses were $3,474 thousand at that date, including $1,632 thousand of professional fees. After the balance-sheet date the filings report a $1.0 million related-party subscription (July 2026) and a new standby equity purchase agreement for up to $25 million; no filing reviewed reports an advance under it, and none can be requested until a resale registration statement is effective. <a href="https://www.sec.gov/Archives/edgar/data/1849380/000149315226013681/form10-k.htm" target="_blank" rel="noopener">10-K</a> <a href="https://www.sec.gov/Archives/edgar/data/1849380/000149315226038461/form10-q.htm" target="_blank" rel="noopener">10-Q</a> <a href="https://www.sec.gov/Archives/edgar/data/1849380/000149315226031590/form8-k.htm" target="_blank" rel="noopener">8-K, Jul 1, 2026</a></p></li>
+      <li class="reveal"><h3>What sits between the 2025 operating loss and the net loss</h3>
+        <p>FY2025 loss from operations was $9,667 thousand. Total other income of $6,867 thousand, including a $5,569 thousand gain on troubled debt restructurings and a $1,285 thousand gain from the change in fair value of convertible notes, brought the net loss to $2,801 thousand. Net cash used in operating activities was $7,503 thousand. Cost of revenue exceeded revenue in FY2025 ($1,862 thousand against $1,359 thousand). It did so again in the six months ended June 30, 2026 ($1,542 thousand against $388 thousand). <a href="https://www.sec.gov/Archives/edgar/data/1849380/000149315226013681/form10-k.htm" target="_blank" rel="noopener">10-K</a> <a href="https://www.sec.gov/Archives/edgar/data/1849380/000149315226038461/form10-q.htm" target="_blank" rel="noopener">10-Q</a></p></li>
+      <li class="reveal"><h3>A 1-for-10 reverse split, two share counts and a Nasdaq deadline</h3>
+        <p>The 8-K says the reverse stock split was &ldquo;to be effective as of 12:01 a.m. Eastern Time on September 29, 2026&rdquo; and is &ldquo;intended to bring the Company into compliance with the minimum bid price requirement for continued listing on the Nasdaq Capital Market&rdquo;. The 8-K gives about 60,125,902 shares outstanding at September 27 becoming about 6,012,591; the press release filed with it gives 59,286,450 at September 24 becoming about 5,928,645. The filings reviewed do not explain the difference. Authorized shares are unchanged at 100,000,000: &ldquo;The total authorized number of shares will not be reduced.&rdquo; The proxy statement&rsquo;s illustrative table shows 94,071,355 shares &ldquo;reserved for future issuance&rdquo; at a 1-for-10 ratio. A Nasdaq notice of April 14, 2026 gave the company until October 12, 2026 to regain compliance, which requires a closing bid of at least $1.00 for ten consecutive business days; no filing reviewed reports that it has. The 8-K of April 20 and the 10-Q say that if the company does not regain compliance by then it may be eligible for an additional 180-calendar-day period if it meets the other listing standards and gives notice of its intent to cure the deficiency, by a reverse split if necessary. A Nasdaq notice of October 8, 2025 confirmed compliance after an earlier bid-price deficiency notice of April 10, 2025. <a href="https://www.sec.gov/Archives/edgar/data/1849380/000149315226044801/form8-k.htm" target="_blank" rel="noopener">8-K, Sep 29, 2026</a> <a href="https://www.sec.gov/Archives/edgar/data/1849380/000149315226018129/form8-k.htm" target="_blank" rel="noopener">8-K, Apr 20, 2026</a> <a href="https://www.sec.gov/Archives/edgar/data/1849380/000149315226038461/form10-q.htm" target="_blank" rel="noopener">10-Q</a> <a href="https://www.sec.gov/Archives/edgar/data/1849380/000149315226039206/formdef14a.htm" target="_blank" rel="noopener">Proxy statement</a> <a href="https://www.sec.gov/Archives/edgar/data/1849380/000149315225017532/form8-k.htm" target="_blank" rel="noopener">8-K, Oct 9, 2025</a></p></li>
+      <li class="reveal"><h3>Dilution and the financing that funds the company</h3>
+        <p>Shares outstanding rose from 51,796,728 at December 31, 2025 to 57,721,343 at June 30, 2026, an increase of about 11% (derived), before the reverse split. Both figures are from the 10-Q; the 10-K reports 51,984,474 shares outstanding at December 31, 2025, and the filings reviewed do not reconcile the two. In the first half of 2026 two related-party investors bought 2,538,441 shares at $0.58 to $0.93 for about $2.1 million, and in July 2026 a related party bought 1,449,275 shares at $0.69 for $1.0 million (pre-split prices). The 2024 standby equity purchase agreement with Yorkville supplied $1.0 million more in the half. The new agreement of July 1, 2026 lets the company sell up to $25 million of stock to Yorkville at 97% of the market price, capped at 19.99% of the shares outstanding at June 30, 2026 (11,386,834 shares, computed in the 8-K on 56,952,652 shares, a different count from the 10-Q balance sheet) unless stockholders approve more or &ldquo;certain pricing conditions are satisfied&rdquo;. The commitment period under the 2024 agreement expired in June 2026. The 10-Q excludes 16,758,630 potentially dilutive shares from diluted earnings per share because they would be anti-dilutive: 12,181,019 warrants and 4,577,611 restricted stock units (pre-split). A forward contract to issue 1,240,644 shares to ARC Group Limited is recorded in equity, and on September 18, 2026 stockholders added 1,000,000 shares to the 2022 equity plan reserve. <a href="https://www.sec.gov/Archives/edgar/data/1849380/000149315226038461/form10-q.htm" target="_blank" rel="noopener">10-Q</a> <a href="https://www.sec.gov/Archives/edgar/data/1849380/000149315226013681/form10-k.htm" target="_blank" rel="noopener">10-K</a> <a href="https://www.sec.gov/Archives/edgar/data/1849380/000149315226031590/form8-k.htm" target="_blank" rel="noopener">8-K, Jul 1, 2026</a> <a href="https://www.sec.gov/Archives/edgar/data/1849380/000149315226043943/form8-k.htm" target="_blank" rel="noopener">8-K, Sep 23, 2026</a></p></li>
+      <li class="reveal"><h3>Control and related parties</h3>
+        <p>The proxy statement shows the nine directors and executive officers as a group holding 50.2% of the shares (29,734,120 of 59,286,450, including shares issuable within 60 days), with Dr. Thomas Kosasa at 31.3% and Dr. Jeffrey Yu at 14.7%. The 10-Q says the company&rsquo;s principal sources of liquidity are &ldquo;proceeds from related party investors, private placement transactions, investments in Bitcoin and cash received from customers&rdquo;. Among the related-party subscriptions it names Dr. Kosasa, a director, who bought 280,898 shares at $0.89 on April 23, 2026 and 268,817 shares at $0.93 on May 18, 2026, about $250,000 each; the proxy statement states the board has determined he is an independent director. The 10-Q also reports an officer&rsquo;s accrued salary converted into 219,429 shares, expenses of about $0.04 million in the first half of 2026 with an accounting firm majority owned by the CFO, who is an independent contractor, and about $0.1 million with a software company wholly owned by the CTO. <a href="https://www.sec.gov/Archives/edgar/data/1849380/000149315226039206/formdef14a.htm" target="_blank" rel="noopener">Proxy statement</a> <a href="https://www.sec.gov/Archives/edgar/data/1849380/000149315226038461/form10-q.htm" target="_blank" rel="noopener">10-Q</a></p></li>
+      <li class="reveal"><h3>A narrow customer base</h3>
+        <p>Three customers accounted for 48% of FY2025 revenue (21%, 15% and 12%) and 51% of receivables at December 31, 2025. In FY2024 two customers accounted for 52% (35% and 17%). Each of the two FY2024 customers was below the 10% reporting threshold in FY2025, and each of the three FY2025 customers was below it in FY2024. The BEAM platform, which supplied $105 thousand of FY2025 revenue and $351 thousand of FY2024 revenue, was decommissioned in May 2025. <a href="https://www.sec.gov/Archives/edgar/data/1849380/000149315226013681/form10-k.htm" target="_blank" rel="noopener">10-K</a></p></li>
+      <li class="reveal"><h3>Material weaknesses and restatement language</h3>
+        <p>The 10-K concludes that &ldquo;our disclosure controls and procedures were ineffective because of material weaknesses in our internal controls over financial reporting&rdquo;, with the disclosure-controls paragraph citing the identification of non-routine transactions and segregation of duties, and the internal-control paragraph citing segregation of duties and proper revenue recognition. A risk-factor sentence says that &ldquo;Such misstatements have resulted in the restatement of the financial statements included in this Annual Report&rdquo;; the 10-K&rsquo;s cover-page box for error corrections is not checked and the passages reviewed identify no restated period. The 10-Q concludes the same for June 30, 2026: disclosure controls were ineffective. EDGAR&rsquo;s XBRL data also shows a Form 10-K/A filed November 5, 2024 (accession 0001493152-24-043625) reporting a 2022 net loss of $30.5 million against $6.2 million as first filed; this page did not read that filing. <a href="https://www.sec.gov/Archives/edgar/data/1849380/000149315226013681/form10-k.htm" target="_blank" rel="noopener">10-K</a> <a href="https://www.sec.gov/Archives/edgar/data/1849380/000149315226038461/form10-q.htm" target="_blank" rel="noopener">10-Q</a></p></li>
+      <li class="reveal"><h3>A complaint from an affiliate of the SPAC sponsor</h3>
+        <p>On November 6, 2025 ARC Group Limited and ARC Opportunity Fund Limited sued the company and certain officers in the District Court of Minnesota, Fourth Judicial District, alleging breach of financial advisory contracts made before the 2023 business combination, the improper cancellation of shares and unpaid cash amounts, and tort claims, and seeking reinstatement of the shares or damages, including punitive damages, in amounts the complaint does not specify. The 10-Q says the sponsor is an affiliate of ARC and that the company &ldquo;denies liability with respect to all disputed amounts&rdquo; and is assessing counterclaims over what it calls self-dealing transactions between ARC and the sponsor. ARC voluntarily dismissed the complaint without prejudice on March 19, 2026. The company has recorded cash liabilities to ARC of $0.4 million and the forward contract for 1,240,644 shares. <a href="https://www.sec.gov/Archives/edgar/data/1849380/000149315226038461/form10-q.htm" target="_blank" rel="noopener">10-Q</a></p></li>
+      <li class="reveal"><h3>Bitcoin held, then sold</h3>
+        <p>The 10-K says the company &ldquo;adopted a Bitcoin strategy on the balance sheets as a forward-looking approach to corporate treasury management&rdquo;. It held $506 thousand of Bitcoin at December 31, 2025 and none at June 30, 2026, after selling Bitcoin for proceeds of $0.4 million in the first half of 2026. The auditor&rsquo;s report on the FY2025 statements includes an &ldquo;Emphasis of Matter – Crypto Assets&rdquo; paragraph. The company&rsquo;s investor page still carries a shareholder&rsquo;s quotation about &ldquo;making Bitcoin the foundational layer of the balance sheet&rdquo;. <a href="https://www.sec.gov/Archives/edgar/data/1849380/000149315226013681/form10-k.htm" target="_blank" rel="noopener">10-K</a> <a href="https://www.sec.gov/Archives/edgar/data/1849380/000149315226038461/form10-q.htm" target="_blank" rel="noopener">10-Q</a></p></li>
+      <li class="reveal"><h3>Figures on the website and in filings differ</h3>
+        <p>The 10-K reports a network of 2,130 healthcare sites. The press release dated September 25, 2026, filed with the 8-K of September 29, says &ldquo;more than 2,300 sites&rdquo; and &ldquo;over 90 million patient journeys and 270 million studies&rdquo;. The company&rsquo;s investor page says &ldquo;over 2,130 healthcare sites&rdquo;, while its homepage shows 90M+ complete patient records, 270M+ clinical exams, 2,300+ healthcare sites and 5B+ administrative records and claims. The 10-K does not state the 90 million, 270 million or 5 billion figures. They are the company&rsquo;s own statements and are not verified here. <a href="https://www.sec.gov/Archives/edgar/data/1849380/000149315226013681/form10-k.htm" target="_blank" rel="noopener">10-K</a> <a href="https://www.sec.gov/Archives/edgar/data/1849380/000149315226044801/form8-k.htm" target="_blank" rel="noopener">8-K, Sep 29, 2026</a></p></li>
+      <li class="reveal"><h3>Scale, history and an unaudited recent period</h3>
+        <p>The company had about 23 employees at December 31, 2025, all remote. It completed its business combination with Data Knights Acquisition Corp., a special purpose acquisition company, on November 7, 2023, at total consideration of approximately $200 million, and says it has &ldquo;experienced net losses in each annual period since inception&rdquo;. The accumulated deficit was $104.4 million at December 31, 2025 and $109.0 million at June 30, 2026. The six-month figures on this page are unaudited. <a href="https://www.sec.gov/Archives/edgar/data/1849380/000149315226013681/form10-k.htm" target="_blank" rel="noopener">10-K</a> <a href="https://www.sec.gov/Archives/edgar/data/1849380/000149315226038461/form10-q.htm" target="_blank" rel="noopener">10-Q</a></p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ 07 GOVERNANCE AND CONTROL ============ -->
+<section id="governance" class="governance sec-tint" aria-labelledby="gov-h">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Governance</p>
+      <h2 id="gov-h">Board, ownership and auditor</h2>
+      <p>From the proxy statement filed Aug 19, 2026 and the 8-K reporting the September 18, 2026 annual meeting. No portraits are used on this page.</p>
+    </div>
+    <div class="gov-grid">
+      <div class="table-scroll reveal">
+        <table class="fin board">
+          <caption>Directors</caption>
+          <thead><tr><th scope="col">Director</th><th scope="col">Role as filed</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Dr. Jeffrey Yu</th><td>Founder, Chief Medical Officer, Vice President and Chairman of the Board</td></tr>
+            <tr><th scope="row">Aaron Green</th><td>Chief Executive Officer and President</td></tr>
+            <tr><th scope="row">Robert Golden</th><td>Chief Financial Officer and Corporate Secretary</td></tr>
+            <tr><th scope="row">Dr. Kenneth Alleyne</th><td>Independent director</td></tr>
+            <tr><th scope="row">Eric Casaburi</th><td>Independent director</td></tr>
+            <tr><th scope="row">Sherry Coonse McCraw</th><td>Independent director</td></tr>
+            <tr><th scope="row">Dr. Thomas Kosasa</th><td>Independent director</td></tr>
+            <tr><th scope="row">Andrew Zeinfeld</th><td>Independent director</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="table-scroll reveal" style="--d:.06s">
+        <table class="fin owners">
+          <caption>Beneficial ownership (before the reverse split)</caption>
+          <thead><tr><th scope="col">Holder</th><th scope="col">Shares</th><th scope="col">Share</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Dr. Thomas Kosasa</th><td class="num">18,538,150</td><td class="num">31.3%</td></tr>
+            <tr><th scope="row">Dr. Jeffrey Yu</th><td class="num">8,697,077</td><td class="num">14.7%</td></tr>
+            <tr><th scope="row">James Sixsmith</th><td class="num">5,154,955</td><td class="num">8.7%</td></tr>
+            <tr><th scope="row">Data Knights LLC</th><td class="num">3,415,275</td><td class="num">5.8%</td></tr>
+            <tr><th scope="row">Off the Chain, LP</th><td class="num">3,215,650</td><td class="num">5.4%</td></tr>
+            <tr><th scope="row">TD Securities (USA) LLC</th><td class="num">3,025,338</td><td class="num">5.1%</td></tr>
+            <tr><th scope="row">Aaron Green</th><td class="num">1,495,665</td><td class="num">2.5%</td></tr>
+            <tr><th scope="row">All 9 directors and executive officers</th><td class="num">29,734,120</td><td class="num">50.2%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <p class="gov-foot reveal">Holdings are as of Aug 11, 2026, except Off the Chain, LP and TD Securities (USA) LLC, which the proxy statement takes from Schedule 13G filings reporting holdings as of Sep 25, 2024 and Dec 31, 2024. James Sixsmith&rsquo;s figure excludes 797,425 shares underlying pre-funded warrants. Percentages are of 59,286,450 shares outstanding and include shares issuable within 60 days. The group total is stated for nine people, and the table lists eight individuals whose holdings add up to it. At the annual meeting on September 18, 2026 stockholders elected three Class III directors, ratified WithumSmith+Brown, PC as auditor for 2026, approved a 1,000,000-share increase in the 2022 equity plan reserve, and approved the reverse split authority (41,068,200 votes for, 739,329 against). <a href="https://www.sec.gov/Archives/edgar/data/1849380/000149315226043943/form8-k.htm" target="_blank" rel="noopener">8-K, Sep 23, 2026</a> <a href="https://www.sec.gov/Archives/edgar/data/1849380/000149315226039206/formdef14a.htm" target="_blank" rel="noopener">Proxy statement</a></p>
+  </div>
+</section>
+
+<!-- ============ 08 FILINGS AND NEWS, with investor alerts as a link ============ -->
+<section id="news" class="news sec-white" aria-labelledby="news-h">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Filings and news</p>
+      <h2 id="news-h">The filings behind this page</h2>
+      <p>Dates are EDGAR filing dates; event dates are in the descriptions. This is the set of filings read for this page, newest first.</p>
+    </div>
+    <div class="table-scroll reveal">
+      <table class="fin filings">
+        <caption>SEC filings reviewed</caption>
+        <thead><tr><th scope="col">Filed</th><th scope="col">Form</th><th scope="col">What it reports</th></tr></thead>
+        <tbody>
+          <tr><td class="num">Sep 29, 2026</td><th scope="row">8-K</th><td>1-for-10 reverse stock split effective Sep 29, 2026; share counts before and after. <a href="https://www.sec.gov/Archives/edgar/data/1849380/000149315226044801/form8-k.htm" target="_blank" rel="noopener">Open</a></td></tr>
+          <tr><td class="num">Sep 23, 2026</td><th scope="row">8-K</th><td>Annual meeting of Sep 18, 2026: three Class III directors elected, auditor ratified, equity plan reserve increased, reverse split authority approved. <a href="https://www.sec.gov/Archives/edgar/data/1849380/000149315226043943/form8-k.htm" target="_blank" rel="noopener">Open</a></td></tr>
+          <tr><td class="num">Aug 19, 2026</td><th scope="row">DEF 14A</th><td>Proxy statement: directors, ownership, equity plan, reverse split, auditor. <a href="https://www.sec.gov/Archives/edgar/data/1849380/000149315226039206/formdef14a.htm" target="_blank" rel="noopener">Open</a></td></tr>
+          <tr><td class="num">Aug 14, 2026</td><th scope="row">10-Q</th><td>Quarter ended Jun 30, 2026: results, balance sheet, going-concern statement, subsequent events. <a href="https://www.sec.gov/Archives/edgar/data/1849380/000149315226038461/form10-q.htm" target="_blank" rel="noopener">Open</a></td></tr>
+          <tr><td class="num">Jul 24, 2026</td><th scope="row">8-K</th><td>2026 annual meeting set for Sep 18, 2026; record date Aug 11, 2026. <a href="https://www.sec.gov/Archives/edgar/data/1849380/000149315226034599/form8-k.htm" target="_blank" rel="noopener">Open</a></td></tr>
+          <tr><td class="num">Jul 1, 2026</td><th scope="row">8-K</th><td>Standby equity purchase agreement with Yorkville for up to $25 million (Jul 1, 2026). <a href="https://www.sec.gov/Archives/edgar/data/1849380/000149315226031590/form8-k.htm" target="_blank" rel="noopener">Open</a></td></tr>
+          <tr><td class="num">Apr 20, 2026</td><th scope="row">8-K</th><td>Nasdaq minimum bid price deficiency notice of Apr 14, 2026; compliance period to Oct 12, 2026. <a href="https://www.sec.gov/Archives/edgar/data/1849380/000149315226018129/form8-k.htm" target="_blank" rel="noopener">Open</a></td></tr>
+          <tr><td class="num">Mar 30, 2026</td><th scope="row">10-K</th><td>Annual report for FY2025, with the auditor&rsquo;s going-concern explanatory paragraph. <a href="https://www.sec.gov/Archives/edgar/data/1849380/000149315226013681/form10-k.htm" target="_blank" rel="noopener">Open</a></td></tr>
+          <tr><td class="num">Dec 23, 2025</td><th scope="row">8-K</th><td>Annual meeting of Dec 17, 2025: two Class II directors elected; auditor ratified. <a href="https://www.sec.gov/Archives/edgar/data/1849380/000149315225029080/form8-k.htm" target="_blank" rel="noopener">Open</a></td></tr>
+          <tr><td class="num">Nov 7, 2025</td><th scope="row">8-K</th><td>Director Jair Clarke will not stand for re-election (notice of Nov 6, 2025). <a href="https://www.sec.gov/Archives/edgar/data/1849380/000149315225021251/form8-k.htm" target="_blank" rel="noopener">Open</a></td></tr>
+          <tr><td class="num">Oct 9, 2025</td><th scope="row">8-K</th><td>Nasdaq confirms the company regained bid-price compliance (notice of Oct 8, 2025). <a href="https://www.sec.gov/Archives/edgar/data/1849380/000149315225017532/form8-k.htm" target="_blank" rel="noopener">Open</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="alerts-line reveal">
+      <p><b>Investor alerts.</b> The company offers a mailing list on <a href="https://www.onemednet.com/investor-relations/" target="_blank" rel="noopener">its investor relations page</a>. This concept page does not collect or store email.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 09 CONTACT: split band, navy half on the left ============ -->
+<section id="contact" class="split split-l" aria-labelledby="contact-h">
+  <div class="split-k sec-dark">
+    <div class="split-in">
+      <p class="eyebrow reveal">Contact</p>
+      <h2 id="contact-h" class="reveal" style="--d:.06s">Investor relations</h2>
+      <p class="lead reveal" style="--d:.12s">Michael Wong, Investor Relations</p>
+      <a class="btn btn-primary-light reveal" style="--d:.18s" href="mailto:Michael.Wong@onemednet.com">Michael.Wong@onemednet.com <span class="arw" aria-hidden="true">-&gt;</span></a>
+    </div>
+  </div>
+  <div class="split-c sec-tint">
+    <div class="split-in">
+      <div class="contact-grid reveal">
+        <div class="contact-col"><h3>Telephone</h3>
+          <a href="tel:+18009187189">800-918-7189</a></div>
+        <div class="contact-col"><h3>Headquarters</h3>
+          <address>OneMedNet Corporation<br>6385 Old Shady Oak Road, Suite 250<br>Eden Prairie, Minnesota 55344</address></div>
+        <div class="contact-col"><h3>Investor page</h3>
+          <a href="https://www.onemednet.com/investor-relations/" target="_blank" rel="noopener">onemednet.com/investor-relations</a></div>
+        <div class="contact-col"><h3>Filings</h3>
+          <a href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;CIK=0001849380&amp;type=&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC EDGAR, CIK 0001849380</a></div>
+      </div>
+      <p class="note reveal">The investor contact and telephone are published on the company&rsquo;s investor relations page. The headquarters address is from the proxy statement filed Aug 19, 2026; the EDGAR header lists a different address.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <a class="footer-logo" href="#hero"><img src="img/onemednet-logo.webp" alt="OneMedNet" width="136" height="46"></a>
+      <ul class="footer-links">
+        <li><a href="https://www.onemednet.com/investor-relations/" target="_blank" rel="noopener">Official investor relations page</a></li>
+        <li><a href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;CIK=0001849380&amp;type=&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC filings (EDGAR)</a></li>
+        <li><a href="https://www.onemednet.com/" target="_blank" rel="noopener">onemednet.com</a></li>
+        <li><a href="https://www.onemednet.com/news/" target="_blank" rel="noopener">Company news</a></li>
+        <li><a href="https://www.onemednet.com/how-it-works/" target="_blank" rel="noopener">How it works</a></li>
+        <li><a href="https://www.onemednet.com/management-team/" target="_blank" rel="noopener">Management team</a></li>
+      </ul>
+    </div>
+    <p class="fls"><b>Sources and method:</b> Figures come from the company&rsquo;s annual report on Form 10-K for the year ended December 31, 2025, its quarterly report on Form 10-Q for the quarter ended June 30, 2026, its proxy statement and its Form 8-K reports through September 29, 2026, each linked beside the item. Amounts are in US dollars; the financial tables are in thousands as reported. Periods are labeled by their end date and dates in the filings table are EDGAR filing dates. Share counts and per-share figures in filings dated before September 29, 2026 are before the 1-for-10 reverse stock split. Derived numbers are labeled where they appear: the monthly average of operating cash used and the percentage change in shares outstanding. Statements about the company&rsquo;s platform, process, customers and announcements that come from onemednet.com are the company&rsquo;s own and are not verified against filings. The process illustration is the company&rsquo;s own and the hero graphic is an original illustration inspired by its logo. No portraits or share prices are used.</p>
+    <p class="fls"><b>About this page:</b> This is an independent design concept and is not the official OneMedNet investor relations website. It is not affiliated with, endorsed by, or maintained by OneMedNet Corporation. Figures were assembled from public materials at a point in time and may be outdated; verify every figure against the company's official SEC filings. For official information, visit <a href="https://www.onemednet.com/investor-relations/">onemednet.com/investor-relations</a>.</p>
+    <p class="fls"><b>Forward-Looking Statements:</b> This website contains forward-looking statements within the meaning of the Private Securities Litigation Reform Act of 1995, including statements regarding the company's ability to continue as a going concern and to fund its operations, the effect of the 1-for-10 reverse stock split and the company's ability to regain and maintain compliance with Nasdaq's minimum bid price requirement, dilution from equity financings including the standby equity purchase agreement and related-party subscriptions, customer concentration, the company's ability to grow revenue from its iRWD offering, material weaknesses in internal control over financial reporting, and the company's reliance on its network of healthcare providers. These statements involve known and unknown risks, uncertainties, and other factors that may cause actual results to differ materially from those expressed or implied. We undertake no obligation to update any forward-looking statements except as required by law. See the company's SEC filings, including its most recent 10-K and 10-Q, for a full discussion of risk factors.</p>
+    <p class="market-note">Market data, where shown, is delayed at least 15 minutes and provided for this concept only. Real-time quotes and official figures are available through the company's investor relations site and SEC filings. This concept page shows no live or delayed share quote.</p>
+  </div>
+</footer>
+
+<script>
+/* mediaconsole motion: inlined by scaffold.mjs at the end of body, identical on every page; never edit it.
+   Sets html.js, runs the ONE reveal observer (fires the mc:reveal hook), scroll-spy, hamburger aria, and the
+   #hero-motif .paused toggle (off-screen, hidden tab, [data-motif-toggle]). Null-guarded: a failure reveals everything. */
+(function(){
+  var d=document,root=d.documentElement;
+  root.classList.add('js');
+  var reduce=!!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  var hasIO='IntersectionObserver' in window;
+  function fire(el,name,detail){
+    var ev;
+    try{ev=new CustomEvent(name,{bubbles:true,detail:detail})}
+    catch(x){ev=d.createEvent('CustomEvent');ev.initCustomEvent(name,true,false,detail)}
+    el.dispatchEvent(ev);
+  }
+  /* mc:reveal fires ONCE per .reveal element, bubbling, as .in lands; detail.reduced is true under reduced motion.
+     Components hook here (counters.js) instead of adding a second observer. */
+  function show(el){
+    if(el.classList.contains('in'))return;
+    el.classList.add('in');
+    fire(el,'mc:reveal',{reduced:reduce});
+  }
+  try{
+    var els=[].slice.call(d.querySelectorAll('.reveal'));
+    if(reduce||!hasIO){els.forEach(show)}
+    else{
+      var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){io.unobserve(e.target);show(e.target)}})},{threshold:.12});
+      els.forEach(function(el){io.observe(el)});
+    }
+  }catch(err){root.classList.remove('js');[].forEach.call(d.querySelectorAll('.reveal'),function(el){el.classList.add('in')})}
+  try{
+    var burger=d.querySelector('.nav-burger'),links=d.getElementById('nav-links'),nav=d.querySelector('.site-nav');
+    if(burger&&links){
+      var setOpen=function(o){links.classList.toggle('open',o);burger.setAttribute('aria-expanded',o?'true':'false')};
+      burger.addEventListener('click',function(){setOpen(!links.classList.contains('open'))});
+      links.addEventListener('click',function(e){if(e.target.closest&&e.target.closest('a'))setOpen(false)});
+      d.addEventListener('keydown',function(e){if((e.key==='Escape'||e.key==='Esc')&&links.classList.contains('open')){setOpen(false);burger.focus()}});
+    }
+    if(nav){var onScroll=function(){nav.classList.toggle('scrolled',window.scrollY>8)};window.addEventListener('scroll',onScroll,{passive:true});onScroll()}
+  }catch(err){}
+  try{
+    var na=[].slice.call(d.querySelectorAll('.nav-links a[href^="#"]:not(.btn)'));
+    if(na.length&&hasIO){
+      var so=new IntersectionObserver(function(en){en.forEach(function(e){
+        if(!e.isIntersecting)return;var id='#'+e.target.id;
+        na.forEach(function(a){var on=a.getAttribute('href')===id;a.classList.toggle('active',on);if(on)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current')});
+      })},{rootMargin:'-40% 0px -55% 0px'});
+      na.forEach(function(a){var t=d.getElementById(a.getAttribute('href').slice(1));if(t)so.observe(t)});
+    }
+  }catch(err){}
+  /* hero motif pause: toggles .paused on #hero-motif (off-screen, hidden tab, or the user's [data-motif-toggle]).
+     The class is the whole contract: substrate CSS pauses every CSS animation inside it; JS motifs watch it (wave.js). */
+  try{
+    var motif=d.getElementById('hero-motif');
+    if(motif&&!reduce){
+      var hero=d.getElementById('hero')||motif,hv=true,user=false,tg=[].slice.call(d.querySelectorAll('[data-motif-toggle]'));
+      var sm=function(){var p=user||!hv||d.hidden;motif.classList.toggle('paused',p)};
+      if(hasIO)new IntersectionObserver(function(en){en.forEach(function(e){hv=e.isIntersecting});sm()},{threshold:0}).observe(hero);
+      d.addEventListener('visibilitychange',sm);
+      tg.forEach(function(b){
+        b.setAttribute('aria-pressed','false');
+        b.addEventListener('click',function(){user=!user;tg.forEach(function(t){t.setAttribute('aria-pressed',user?'true':'false')});sm()});
+      });
+    }
+  }catch(err){}
+})();
+</script>
+</body>
+</html>
